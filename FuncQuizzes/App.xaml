@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:FuncQuizzes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/assets/icons/Icons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/assets/styles/ColorsAndFonts.xaml"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
