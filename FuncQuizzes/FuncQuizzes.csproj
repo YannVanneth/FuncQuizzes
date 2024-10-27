@@ -9,10 +9,57 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="assets\" />
-    <Folder Include="components\" />
+    <None Remove="assets\fonts\KantumruyPro-Regular.ttf" />
+    <None Remove="assets\FuncQuizzes.png" />
+    <None Remove="assets\icons\Person_noInfo.png" />
+    <None Remove="assets\icons\programming.png" />
+    <None Remove="assets\images\C++.png" />
+    <None Remove="assets\images\CandC++.png" />
+    <None Remove="assets\images\Dart.png" />
+    <None Remove="assets\images\Java.png" />
+    <None Remove="assets\images\JavaScript.png" />
+    <None Remove="assets\images\Python.png" />
+    <None Remove="assets\images\Swift.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="features\" />
-    <Folder Include="pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\fonts\KantumruyPro-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\icons\Person_noInfo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\icons\programming.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\C++.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\CandC++.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\Dart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\FuncQuizzes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\Java.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\JavaScript.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\Python.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\Swift.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

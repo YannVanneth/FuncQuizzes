@@ -19,6 +19,7 @@ namespace FuncQuizzes
         public MainWindow()
         {
             InitializeComponent();
+            Main.Navigate(new pages.HomeScreen());
         }
     }
 }

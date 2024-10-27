@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\ANT\C#\G2 -\Group_02_C#_Mobile_App_Morning\FuncQuizzes\App.xaml
-11407045341
+11-248998657
 
-6-437584443
+13-934240087
 1981124507420
-MainWindow.xaml;
+assets\icons\Icons.xaml;assets\styles\ColorsAndFonts.xaml;assets\styles\FuncStyles.xaml;components\ContentList.xaml;components\FuncQuizzesSlider.xaml;components\MenuItems.xaml;components\SlideBanner.xaml;components\SliderCardDetails.xaml;components\TopicCard.xaml;MainWindow.xaml;pages\HomeScreen.xaml;
 
 True
 

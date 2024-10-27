@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FuncQuizzes.components.FuncQuizzesSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuncQuizzes.components"
+             mc:Ignorable="d" Name="this"
+             d:DesignHeight="318" d:DesignWidth="1053">
+
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="dot">
+            <Setter Property="Width" Value="7.5"/>
+            <Setter Property="Height" Value="7.5"/>
+            <Setter Property="CornerRadius" Value="3.75"/>
+            <Setter Property="Margin" Value="5 0"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <!-- End UserControl Resources -->
+ 
+    <Border CornerRadius="12">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="706"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    Padding="0 20 20 20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <local:SlideBanner Grid.Row="0"/>
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                        <Border Background="DodgerBlue" Style="{StaticResource dot}"/>
+                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
+                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
+                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <!-- END Column 0 -->
+
+            <Border Grid.Column="1"
+                    Padding="0 20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+
+                    <Border HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Grid.Row="0">
+                        <local:SliderCardDetails Height="161"
+                                                 Width="237"/>
+                    </Border>
+                    
+                    <Button Grid.Row="1"
+                            Content="ចាប់ផ្ដើម"
+                            VerticalAlignment="Top"
+                            FontFamily="{DynamicResource Kantumruy_Pro}"
+                            Style="{DynamicResource GetStartedBtn}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
