@@ -33,6 +33,9 @@
     <Page Update="assets\icons\Icons.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="assets\styles\buttonquestionstyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="assets\styles\ColorsAndFonts.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -60,7 +63,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="pages\chooselevel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="pages\HomeScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\questionpage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\selectcategory.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

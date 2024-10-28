@@ -1,0 +1,124 @@
+﻿<Page x:Class="FuncQuizzes.pages.selectcategory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FuncQuizzes.pages"
+      mc:Ignorable="d" Background="White"
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="selectcategory">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#FF9D3C">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                    Height="80" Width="140"
+                    BorderBrush="#C5E1F6"
+                    BorderThickness="2"
+                    Margin="0 40 0 0"
+                    CornerRadius="5 5 5 5">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../assets/images/func.jpg"/>
+                    </Border.Background>
+
+                </Border>
+                <TextBlock Grid.Column="1"
+                       FontFamily="{StaticResource Moul}"
+                       Text="សូមជ្រើសរើសមុខវិជ្ជាដើម្បីជ្រើសរើសកម្រិតសំណួរ"
+                       Margin="0 50 0 0"
+                       Foreground="White"
+                       FontSize="30"/>
+            </Grid>
+        </StackPanel>
+        <Grid Grid.Row="1" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="100 10 0 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0"
+                        Style="{StaticResource buttonstyle}"
+                        Margin="120 20 20 20"
+                        Height="40">
+                        CPP
+                    </Button>
+                    <Button Grid.Row="1"
+                        Margin="120 20 20 20"
+                        Style="{StaticResource buttonstyle}"
+                        Height="40">
+                        C#
+                    </Button>
+                    <Button Grid.Row="2"
+                        Style="{StaticResource buttonstyle}"
+                        Margin="120 20 20 20"
+                        Height="40">
+                        FLUTTER
+                    </Button>
+                    <Button Grid.Row="3"
+                        Style="{StaticResource buttonstyle}"
+                        Margin="120 20 20 20"
+                        Height="40">
+                        ចំណេះដឺងទូទៅ
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="10 10 0 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" x:Name="bordercppunlock"
+                        HorizontalAlignment="Left"
+                        Margin="0 20 0 20"
+                        Height="40" Width="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/images/unlock.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Border Grid.Row="1"
+                        HorizontalAlignment="Left"
+                        Margin="0 20 0 20"
+                        Height="40" Width="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Border Grid.Row="2"
+                        HorizontalAlignment="Left"
+                        Margin="0 20 0 20"
+                        Height="40" Width="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Border Grid.Row="3"
+                        HorizontalAlignment="Left"
+                        Margin="0 20 0 20"
+                        Height="40" Width="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

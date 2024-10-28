@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="pack://application:,,,/assets/icons/Icons.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/assets/styles/ColorsAndFonts.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/assets/styles/FuncStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/assets/styles/buttonquestionstyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
