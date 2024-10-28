@@ -45,7 +45,7 @@
 
             <StackPanel Grid.Row="1">
                 <ScrollViewer VerticalScrollBarVisibility="Hidden"
-                              HorizontalScrollBarVisibility="Hidden"
+                              HorizontalScrollBarVisibility="Visible"
                               CanContentScroll="True">
                     <StackPanel Orientation="Horizontal">
                         <local:TopicCard Image="../assets/images/Dart.png"
