@@ -31,6 +31,9 @@
     <Compile Update="pages\HomeScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="pages\ScoreScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="assets\icons\Icons.xaml">
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\questionpage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\ScoreScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\selectcategory.xaml">
