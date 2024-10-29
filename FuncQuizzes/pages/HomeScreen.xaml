@@ -83,12 +83,14 @@
                                                    x:Name="HomeIcon"/>
                         </Button>
                     </Border>
+                    
+                    <StackPanel Margin="5"/> <!-- Spacer -->
+                    
                     <Border Padding="5 0"
                             BorderThickness="5 0 0 0"
                             x:Name="HistoryPageBorder">
                         <Button Style="{DynamicResource MenuButton}"
                                 HorizontalContentAlignment="Left"
-                                Margin="0 10"
                                 x:Name="HistoryPage"
                                 Click="HistoryPage_Click">
                                 <FuncQuizzes:MenuItems Icon="{DynamicResource History}"
@@ -99,6 +101,8 @@
                                     x:Name="HistoryIcon"/>
                         </Button>
                     </Border>
+
+                    <StackPanel Margin="5"/> <!-- Spacer -->
 
                     <Border Padding="5 0"
                             BorderThickness="5 0 0 0"
