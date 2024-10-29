@@ -137,7 +137,7 @@
 
                                 <StackPanel>
 
-                                    <Image Source="../assets/images//facebook.png"/>
+                                    <Image Source="../assets/images/facebook.png"/>
                                 </StackPanel>
                             </Button>
                             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
