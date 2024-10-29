@@ -20,9 +20,28 @@ namespace FuncQuizzes.components
     /// </summary>
     public partial class SlideBanner : UserControl
     {
-        public SlideBanner()
+        public SlideBanner(string text, ImageSource image)
         {
             InitializeComponent();
+            this.Text = text;
+            this.ContentImage = image;
         }
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(SlideBanner));
+
+        public ImageSource ContentImage
+        {
+            get { return (ImageSource)GetValue(ContentImageProperty); }
+            set { SetValue(ContentImageProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentImageProperty =
+            DependencyProperty.Register("ContentImage", typeof(ImageSource), typeof(SlideBanner));
     }
 }

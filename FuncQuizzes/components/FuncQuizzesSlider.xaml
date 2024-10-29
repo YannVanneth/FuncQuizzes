@@ -33,15 +33,30 @@
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
 
-                    <local:SlideBanner Grid.Row="0"/>
+                    <!--<local:SlideBanner Grid.Row="0"
+                                       Text="C/C++ Programming"
+                                       ContentImage="../assets/images/CandC++.png">
+                        <local:SlideBanner.Background>
+                            <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0" >
+                                <GradientStop Color="#5787BA" Offset="0.9"/>
+                                <GradientStop Color="#547EA9"/>
+                            </LinearGradientBrush>
+                        </local:SlideBanner.Background>
+                    </local:SlideBanner>-->
+                    <StackPanel Grid.Row="0"
+                                x:Name="BannerContent"
+                                Orientation="Vertical" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"/>
+
                     <StackPanel Grid.Row="1"
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center">
-                        <Border Background="DodgerBlue" Style="{StaticResource dot}"/>
-                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
-                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
-                        <Border Background="SlateGray" Style="{StaticResource dot}"/>
+                        <Border x:Name="index0" Background="DodgerBlue" Style="{StaticResource dot}"/>
+                        <Border x:Name="index1" Background="SlateGray" Style="{StaticResource dot}"/>
+                        <Border x:Name="index2" Background="SlateGray" Style="{StaticResource dot}"/>
+                        <Border x:Name="index3" Background="SlateGray" Style="{StaticResource dot}"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -66,7 +81,9 @@
                             Content="ចាប់ផ្ដើម"
                             VerticalAlignment="Top"
                             FontFamily="{DynamicResource Kantumruy_Pro}"
-                            Style="{DynamicResource GetStartedBtn}"/>
+                            Style="{DynamicResource GetStartedBtn}"
+                            x:Name="GetStartbtn"
+                            Click="GetStartbtn_Click"/>
                 </Grid>
             </Border>
         </Grid>

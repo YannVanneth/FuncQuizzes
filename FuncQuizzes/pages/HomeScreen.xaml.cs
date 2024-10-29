@@ -23,6 +23,7 @@ namespace FuncQuizzes.pages
         public HomeScreen()
         {
             InitializeComponent();
+            this.ActiveBorder(this.HomePageBorder.BorderBrush);
         }
 
         private void HistoryPage_Click(object sender, RoutedEventArgs e)
@@ -33,6 +34,10 @@ namespace FuncQuizzes.pages
         private void AboutUsPage_Click(object sender, RoutedEventArgs e)
         {
             this.ActiveBorder(this.AboutUsPageBorder.BorderBrush);
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.Main.Content = new pages.AboutUs();
+            }
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
@@ -53,7 +58,7 @@ namespace FuncQuizzes.pages
                 this.HomeIcon.Color = new SolidColorBrush(Colors.White);
             }
 
-            if (border == this.HomePageBorder.BorderBrush)
+            else if (border == this.HomePageBorder.BorderBrush)
             {
                 this.AboutUsPageBorder.BorderBrush = new SolidColorBrush(Colors.White);
                 this.HomePageBorder.BorderBrush = new SolidColorBrush(Colors.Orange);
@@ -64,7 +69,7 @@ namespace FuncQuizzes.pages
                 this.HomeIcon.Color = new SolidColorBrush(Colors.Orange);
             }
 
-            if (border == this.HistoryPageBorder.BorderBrush)
+            else if (border == this.HistoryPageBorder.BorderBrush)
             {
                 this.HistoryPageBorder.BorderBrush = new SolidColorBrush(Colors.Orange);
                 this.HomePageBorder.BorderBrush = new SolidColorBrush(Colors.White);
