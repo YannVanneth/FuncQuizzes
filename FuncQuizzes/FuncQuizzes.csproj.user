@@ -25,6 +25,9 @@
     <Compile Update="components\TopicCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="pages\AboutUs.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="pages\HomeScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\AboutUs.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\chooselevel.xaml">

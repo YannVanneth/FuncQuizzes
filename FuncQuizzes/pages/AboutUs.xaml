@@ -1,0 +1,200 @@
+﻿<Page x:Class="FuncQuizzes.pages.AboutUs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FuncQuizzes.pages"
+      mc:Ignorable="d" 
+      Title="AboutUs" Background="#C5E1F6"
+      d:DesignHeight="700" d:DesignWidth="1200">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="Black">
+            <Image  Source="../assets/images/FuncQuizzes.png" Height="100"/>
+        </Border>
+        <Border Grid.Row="1">
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="អំពីពួកយើង" 
+       HorizontalAlignment="Center"
+      
+       FontFamily="{StaticResource Moul}"
+       FontSize="30"/>
+                <TextBlock Text="QuizzyQuest គឺជាកម្មវិធីប្រឡងសំណួរដ៏គួរឱ្យរីករាយ និងមានលក្ខណៈអប់រំ ដែលត្រូវបានរចនាឡើងដើម្បីប្រឡង និងកម្សាន្តអ្នកប្រើប្រាស់គ្រប់វ័យ។ ក្រុមការងាររបស់យើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្តសំណួរ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលដៅធ្វើឱ្យការរៀនសូត្រកាន់តែគួរឱ្យរីករាយ និងងាយស្រួលទទួលបាន។ ជាមួយនឹងតេស្តសំណួរជាច្រើនប្រភេទដែលគ្របដណ្តប់លើប្រធានបទផ្សេងៗ QuizzyQuest ផ្តល់នូវបទពិសោធន៍ដែលត្រូវនឹងបុគ្គល និងទាក់ទាញ។ ការប្តេជ្ញាចិត្តរបស់យើងចំពោះភាពត្រឹមត្រូវ និងការពេញចិត្តរបស់អ្នកប្រើប្រាស់ ជំរុញឱ្យយើងបន្តកែលម្អ និងពង្រីកមុខងារកម្មវិធីរបស់យើង។ ចូលរួមជាមួយសហគមន៍ QuizzyQuest និងស្វែងរកភាពរំភើបនៃការរៀនសូត្រតាមរយៈការធ្វើតេស្តសំណួរ!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}"/>
+            </StackPanel>
+        </Border>
+        <Grid  Grid.Row="2" VerticalAlignment="Center">
+
+            <Border HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="20 0 20 0">
+                        <Border Height="150" Width="150" CornerRadius="75">
+                            <Border.Background>
+                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+                        BorderBrush="Transparent" Click="Avar_1_Email_Click"
+                        Style="{StaticResource ImageLink}"  
+                                    >
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/email.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+                            BorderBrush="Transparent" Click="Avar_1_Facebook_Click"
+                        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/facebook.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+                        BorderBrush="Transparent" Click="Avar_1_School_Click"
+                        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/school.png"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--Avatar two-->
+
+                    <StackPanel Margin="20 0 20 0">
+                        <Border Height="150" Width="150" CornerRadius="75">
+                            <Border.Background>
+                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_2_Email_Click"
+        Style="{StaticResource ImageLink}"  
+                    >
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/email.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+            BorderBrush="Transparent" Click="Avar_2_Facebook_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/facebook.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_2_School_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/school.png"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+
+
+                    <!--Avatar three-->
+
+                    <StackPanel Margin="20 0 20 0">
+                        <Border Height="150" Width="150" CornerRadius="75">
+                            <Border.Background>
+                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_3_Email_Click"
+        Style="{StaticResource ImageLink}"  
+                    >
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/email.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+            BorderBrush="Transparent" Click="Avar_3_Facebook_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images//facebook.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_3_School_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/school.png"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--Avatar Four-->
+
+                    <StackPanel Margin="20 0 20 0">
+                        <Border Height="150" Width="150" CornerRadius="75">
+                            <Border.Background>
+                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_4_Email_Click"
+        Style="{StaticResource ImageLink}"  
+                    >
+
+                                <StackPanel>
+
+                                    <Image Source="../assets/images/email.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+            BorderBrush="Transparent" Click="Avar_4_Facebook_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+                                    <Image Source="../assets/images/facebook.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
+        BorderBrush="Transparent" Click="Avar_4_School_Click"
+        Style="{StaticResource ImageLink}">
+
+                                <StackPanel>
+                                    <Image Source="../assets/images/school.png"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
