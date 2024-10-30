@@ -78,6 +78,9 @@
     <Page Update="pages\questionpage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="pages\ScoreScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="pages\selectcategory.xaml">
       <SubType>Designer</SubType>
     </Page>

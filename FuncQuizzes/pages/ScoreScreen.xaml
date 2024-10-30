@@ -1,0 +1,97 @@
+﻿<Page x:Class="FuncQuizzes.pages.ScoreScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FuncQuizzes.pages"
+      mc:Ignorable="d" Background="White"
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="ScoreScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#FF9D3C">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                 Height="80" Width="140"
+                 BorderBrush="#C5E1F6"
+                 BorderThickness="2"
+                 Margin="0 30 0 0"
+                 CornerRadius="5 5 5 5">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../assets/icons/func.jpg"/>
+                    </Border.Background>
+
+                </Border>
+                <TextBlock Grid.Column="1"
+                    FontFamily="{StaticResource Suwannaphum}"
+                    Text="អបអរសាទរ! អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ"
+                    Margin="0 40 0 0"
+                    Foreground="White"
+                    FontSize="30"/>
+            </Grid>
+        </StackPanel>
+        <Border Grid.Row="1" Margin="80 30 80 10"
+                CornerRadius="10 10 10 10"
+                BorderBrush="{StaticResource Primary-color}"
+                BorderThickness="4">
+            <StackPanel Orientation="Horizontal">
+                <Border Height="300" Width="300"
+                        Margin="50 10 0 0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../assets/images/customer-service.png" Stretch="Uniform"/>
+                    </Border.Background>
+                </Border>
+                <Border Height="300" Width="300" 
+                        CornerRadius="150" 
+                        BorderBrush="{StaticResource Secondary-background}"
+                        BorderThickness="2"
+                        Margin="250 10 0 0">
+                    <Border.Background>
+                        #FF9D3C
+                    </Border.Background>
+                    <StackPanel>
+                        <TextBlock Text="ពិន្ទុសរុប" TextAlignment="Center"
+                                   FontFamily="{StaticResource Moul}"
+                                   Foreground="{StaticResource Secondary-color}"
+                                   FontSize="35" Margin="40">
+                            
+                        </TextBlock>
+                        <Border BorderBrush="{StaticResource Secondary-color}"
+                                BorderThickness="2">
+                            
+                        </Border>
+                        <TextBlock Text="100" TextAlignment="Center"
+                                   FontFamily="{StaticResource Suwannaphum}"
+                                   Foreground="{StaticResource Secondary-color}"
+                                   FontSize="70">
+
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 80 0">
+            <Button Height="50" Width="160"
+                    FontSize="20" Margin="0 0 30 0"
+                    Style="{StaticResource buttonstyle}">
+                សាកល្បងម្ដងទៀត
+            </Button>
+            <Button Height="50" Width="120"
+                    FontSize="20"
+                    Style="{StaticResource buttonstyle}">
+                ទំព័រដើម
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
