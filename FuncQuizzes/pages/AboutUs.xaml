@@ -14,8 +14,32 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="Black">
-            <Image  Source="../assets/images/FuncQuizzes.png" Height="100"/>
+        
+        <Border Grid.Row="0" Background="Black" Height="100">
+            <!--<Image  Source="../assets/images/FuncQuizzes.png" Height="100"/>-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="100" 
+BorderBrush="Transparent" Click="button_back"
+Style="{StaticResource ImageLink}">
+
+                        <StackPanel>
+
+                            <Image Source="../assets/images/back_arrow.png" Height="50" Width="50"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Border>
+                        <Image  Source="../assets/images/FuncQuizzes.png" Height="100"/>
+                    </Border>
+                </Grid>
+            </Grid>
         </Border>
         <Border Grid.Row="1">
             <StackPanel VerticalAlignment="Center">
@@ -34,9 +58,10 @@
                     <StackPanel Margin="20 0 20 0">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
-                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                                <ImageBrush ImageSource="../assets/images/david.jpg"/>
                             </Border.Background>
                         </Border>
+                        <TextBlock Text="អឿន ដាវីដ" TextAlignment="Center" FontSize="20" FontFamily="{StaticResource Suwannaphum}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
                         BorderBrush="Transparent" Click="Avar_1_Email_Click"
@@ -75,9 +100,10 @@
                     <StackPanel Margin="20 0 20 0">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
-                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                                <ImageBrush ImageSource="../assets/images/vanneth.jpg"/>
                             </Border.Background>
                         </Border>
+                        <TextBlock Text="យ៉ាន់ វណ្ណេត" TextAlignment="Center" FontSize="20" FontFamily="{StaticResource Suwannaphum}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
         BorderBrush="Transparent" Click="Avar_2_Email_Click"
@@ -117,9 +143,10 @@
                     <StackPanel Margin="20 0 20 0">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
-                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                                <ImageBrush ImageSource="../assets/images/marina.jpg"/>
                             </Border.Background>
                         </Border>
+                        <TextBlock Text="ទាំ ម៉ារីណា" TextAlignment="Center" FontSize="20" FontFamily="{StaticResource Suwannaphum}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
         BorderBrush="Transparent" Click="Avar_3_Email_Click"
@@ -158,9 +185,10 @@
                     <StackPanel Margin="20 0 20 0">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
-                                <ImageBrush ImageSource="../assets/images/avatar.png"/>
+                                <ImageBrush ImageSource="../assets/images/boroeurn.jpg"/>
                             </Border.Background>
                         </Border>
+                        <TextBlock Text="ប្រាជ្ញ បូរឿន" TextAlignment="Center" FontSize="20" FontFamily="{StaticResource Suwannaphum}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" 
         BorderBrush="Transparent" Click="Avar_4_Email_Click"
