@@ -9,6 +9,7 @@
         MinWidth="1200" MaxWidth="1200"
         MaxHeight="700" MinHeight="700">
     <Grid>
-        <Frame x:Name="Main"/>
+        <Frame x:Name="Main"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

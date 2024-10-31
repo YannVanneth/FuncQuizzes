@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -13,12 +13,12 @@
     <None Remove="assets\fonts\Moul-Regular.ttf" />
     <None Remove="assets\fonts\Suwannaphum-Regular.ttf" />
     <None Remove="assets\FuncQuizzes.png" />
+    <None Remove="assets\icons\func.jpg" />
     <None Remove="assets\icons\Person_noInfo.png" />
     <None Remove="assets\icons\programming.png" />
     <None Remove="assets\images\avatar.png" />
     <None Remove="assets\images\back.png" />
-    <None Remove="assets\images\C++.png" />
-    <None Remove="assets\images\CandC++.png" />
+    <None Remove="assets\images\CandCpp.png" />
     <None Remove="assets\images\customer-service.png" />
     <None Remove="assets\images\Dart.png" />
     <None Remove="assets\images\email.png" />
@@ -50,6 +50,9 @@
     <Resource Include="assets\fonts\Suwannaphum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="assets\icons\func.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="assets\icons\Person_noInfo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -62,10 +65,10 @@
     <Resource Include="assets\images\back.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\images\C++.png">
+    <Resource Include="assets\images\Cpp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\images\CandC++.png">
+    <Resource Include="assets\images\CandCpp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\images\customer-service.png">
