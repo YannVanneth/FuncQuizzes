@@ -20,6 +20,8 @@ namespace FuncQuizzes.pages
     /// </summary>
     public partial class selectcategory : Page
     {
+        public int getcategoryid;
+        public int getlevelid;
         public selectcategory()
         {
             InitializeComponent();

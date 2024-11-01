@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -34,7 +34,7 @@
                            FontFamily="{StaticResource Moul}"
                            Text="សូមជ្រើសរើសមុខវិជ្ជាដើម្បីជ្រើសរើសកម្រិតសំណួរ"
                            Margin="0 50 0 0"
-                           Foreground="White"
+                           Foreground="Black"
                            FontSize="30"/>
             </Grid>
         </StackPanel>
@@ -53,7 +53,7 @@
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
                             x:Name="buttoncategorycpp"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Margin="120 20 20 20"
                             Height="40">
                         CPP
@@ -61,20 +61,20 @@
                     <Button Grid.Row="1"
                             x:Name="buttoncategorycsharp"
                             Margin="120 20 20 20"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Height="40">
                         C#
                     </Button>
                     <Button Grid.Row="2"
                             x:Name="buttoncategoryflutter"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Margin="120 20 20 20"
                             Height="40">
                         FLUTTER
                     </Button>
                     <Button Grid.Row="3"
                             x:Name="buttoncategorygeneralknowlege"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Margin="120 20 20 20"
                             Height="40">
                         ចំណេះដឺងទូទៅ

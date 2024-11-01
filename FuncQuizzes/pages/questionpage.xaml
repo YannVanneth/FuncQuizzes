@@ -14,7 +14,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -35,14 +35,14 @@
                        FontFamily="{StaticResource Moul}"
                        Text="សូមធ្វើការឆ្លើយសំណួរខាងក្រោមឲ្យបានត្រឹមត្រូវ"
                        Margin="0 40 0 0"
-                       Foreground="White"
+                       Foreground="Black"
                        FontSize="30"/>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1" Margin="80 50 80 0">
             <TextBlock x:Name="questionnam"
                        FontFamily="{StaticResource Suwannaphum}"
-                       Foreground="{StaticResource Primary-color}"
+                       Foreground="Black"
                        FontSize="30">
                 តើអ្នកចូលចិត្តស្រលាញ់គេម្នាក់ឯងទេ?
             </TextBlock>
@@ -50,34 +50,34 @@
                     Margin="0 30 0 0"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
+                    Height="40" Style="{StaticResource newbuttonstyle}">
                 ចូលចិត្តបន្តិចបន្តួច
             </Button>
             <Button x:Name="buttonanswer3"
                     Margin="0 30 0 0"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
+                    Height="40" Style="{StaticResource newbuttonstyle}">
                 មិនសូវចូលចិត្តទេ
             </Button>
             <Button x:Name="buttonanswer4"
                     Margin="0 30 0 0"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
+                    Height="40" Style="{StaticResource newbuttonstyle}">
                 មិនចូលចិត្តសូម្បីបន្តិច
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Border Height="50" Width="50">
+            <Border Height="60" Width="60">
                 <Border.Background>
                     <ImageBrush ImageSource="../assets/images/back.png" Stretch="UniformToFill"/>
                 </Border.Background>
             </Border>
             <Border Height="60" Width="60">
                 <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/next.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="../assets/images/next-button.png" Stretch="UniformToFill"/>
                 </Border.Background>
             </Border>
         </StackPanel>
