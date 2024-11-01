@@ -59,7 +59,7 @@ namespace FuncQuizzes.pages
 
         private void Avar_1_School_Click(object sender, RoutedEventArgs e)
         {
-            string url = "http://training.antkh.com/students/?s=5219";
+            string url = "http://training.antkh.com/students/?s=5003";
 
             try
             {
@@ -132,11 +132,32 @@ namespace FuncQuizzes.pages
 
         private void Avar_4_Facebook_Click(object sender, RoutedEventArgs e)
         {
+            string url = "https://facebook.com/boroeurndev";
 
+            try
+            {
+                // Open the link in the default web browser
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open the link: {ex.Message}");
+            }
         }
 
         private void Avar_4_School_Click(object sender, RoutedEventArgs e)
         {
+            string url = "http://training.antkh.com/students/?s=5216";
+
+            try
+            {
+                // Open the link in the default web browser
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open the link: {ex.Message}");
+            }
 
         }
 
