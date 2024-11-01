@@ -28,7 +28,7 @@ namespace FuncQuizzes.pages
 
         private void Avar_1_Email_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://mail.google.com/mail/";
+            string url = "https://mail.google.com/mail/?view=cm&fs=1&to=prach.boroeurn@gmail.com&su=Hello&body=Hi%20Boroeurn";
 
             try
             {
@@ -44,7 +44,7 @@ namespace FuncQuizzes.pages
 
         private void Avar_1_Facebook_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://facebook.com";
+            string url = "https://facebook.com/mcdavid2u";
 
             try
             {
@@ -137,6 +137,19 @@ namespace FuncQuizzes.pages
 
         private void Avar_4_School_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void button_back(object sender, RoutedEventArgs e)
+        {
+            
+                MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+
+                if (mainWindow != null)
+                {
+                    mainWindow.Main.Content = new pages.HomeScreen();
+                }
+            
 
         }
     }
