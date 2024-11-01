@@ -24,5 +24,23 @@ namespace FuncQuizzes.components
         {
             InitializeComponent();
         }
+
+        private void InnerScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var scrollViewer = sender as ScrollViewer;
+
+            if (scrollViewer != null)
+            {
+                if (e.Delta < 0) scrollViewer.LineRight();
+                else scrollViewer.LineLeft();
+
+                e.Handled = true;
+            }
+        }
+
+        private void TopicCard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Clicked");
+        }
     }
 }

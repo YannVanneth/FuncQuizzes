@@ -27,7 +27,7 @@
                     Margin="0 25 0 0"
                     CornerRadius="5 5 5 5">
                     <Border.Background>
-                        <ImageBrush ImageSource="../assets/images/func.jpg"/>
+                        <ImageBrush ImageSource="../assets/icons/func.jpg"/>
                     </Border.Background>
 
                 </Border>
@@ -54,14 +54,14 @@
                 ចូលចិត្តបន្តិចបន្តួច
             </Button>
             <Button x:Name="buttonanswer3"
-                    Margin="0 40 0 0"
+                    Margin="0 30 0 0"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
                     Height="40" Style="{StaticResource buttonstyle}">
                 មិនសូវចូលចិត្តទេ
             </Button>
             <Button x:Name="buttonanswer4"
-                    Margin="0 40 0 0"
+                    Margin="0 30 0 0"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
                     Height="40" Style="{StaticResource buttonstyle}">

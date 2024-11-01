@@ -70,10 +70,11 @@ namespace FuncQuizzes.components
         {
             content = new List<SlideBanner>
             {
-                new SlideBanner("C++ Programming", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandC++.png"))),
+                new SlideBanner("C++ Programming", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandCpp.png"))),
                 new SlideBanner("Let's go! With Python", new BitmapImage(new Uri("pack://application:,,,/assets/images/Python.png"))),
                 new SlideBanner("Hello, JavaScript", new BitmapImage(new Uri("pack://application:,,,/assets/images/JavaScript.png"))),
-                new SlideBanner("Hah C Again!", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandC++.png")))
+                new SlideBanner("Hah C Again!", new BitmapImage(new Uri("pack://application:,,,/assets/images/Cpp.png"))),
+
             };
 
             UpdateSlide();
