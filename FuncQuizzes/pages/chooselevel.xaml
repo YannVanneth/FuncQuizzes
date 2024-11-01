@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#FF9D3C">
             <Grid>
@@ -83,5 +84,15 @@
                 </Border.Background>
             </Border>
         </Grid>
+        <Button Grid.Row="2"
+                x:Name="chooselevelback"
+                Click="chooselevelback_Click"
+                Height="50" Width="150"
+                HorizontalAlignment="Right"
+                FontSize="20"
+                Style="{StaticResource buttonstyle}"
+                Margin="0 0 50 0">
+            ទំព័រដើម
+        </Button>
     </Grid>
 </Page>

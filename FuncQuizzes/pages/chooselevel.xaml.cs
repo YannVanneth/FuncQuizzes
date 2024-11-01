@@ -24,5 +24,15 @@ namespace FuncQuizzes.pages
         {
             InitializeComponent();
         }
+
+        private void chooselevelback_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+
+            if (mainWindow != null)
+            {
+                mainWindow.Main.Content = new pages.HomeScreen();
+            }
+        }
     }
 }
