@@ -21,8 +21,8 @@
     <Border CornerRadius="12">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="706"/>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0"
@@ -33,16 +33,6 @@
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
 
-                    <!--<local:SlideBanner Grid.Row="0"
-                                       Text="C/C++ Programming"
-                                       ContentImage="../assets/images/CandC++.png">
-                        <local:SlideBanner.Background>
-                            <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0" >
-                                <GradientStop Color="#5787BA" Offset="0.9"/>
-                                <GradientStop Color="#547EA9"/>
-                            </LinearGradientBrush>
-                        </local:SlideBanner.Background>
-                    </local:SlideBanner>-->
                     <StackPanel Grid.Row="0"
                                 x:Name="BannerContent"
                                 Orientation="Vertical" 

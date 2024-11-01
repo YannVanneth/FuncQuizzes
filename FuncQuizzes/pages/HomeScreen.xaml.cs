@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FuncQuizzes.pages
 {
@@ -34,10 +35,17 @@ namespace FuncQuizzes.pages
         private void AboutUsPage_Click(object sender, RoutedEventArgs e)
         {
             this.ActiveBorder(this.AboutUsPageBorder.BorderBrush);
+
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
                 mainWindow.Main.Content = new pages.AboutUs();
+
+                if(mainWindow.Main.Content is HomeScreen)
+                {
+                  this.ActiveBorder(this.HomePageBorder.BorderBrush);
+                }
             }
+
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
