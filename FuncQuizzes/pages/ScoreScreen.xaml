@@ -14,34 +14,34 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0"
-                 Height="80" Width="140"
-                 BorderBrush="#C5E1F6"
-                 BorderThickness="2"
-                 Margin="0 30 0 0"
-                 CornerRadius="5 5 5 5">
+                <Border  Grid.Column="0"
+                         Height="80" Width="140"
+                         BorderBrush="#C5E1F6"
+                         BorderThickness="2"
+                         Margin="0 30 0 0"
+                         CornerRadius="5 5 5 5">
                     <Border.Background>
-                        <ImageBrush ImageSource="../assets/images/FuncQuizzes.png"/>
+                        <ImageBrush ImageSource="../assets/icons/func.jpg"/>
                     </Border.Background>
 
                 </Border>
                 <TextBlock Grid.Column="1"
-                    FontFamily="{StaticResource Suwannaphum}"
+                    FontFamily="{StaticResource Moul}"
                     Text="អបអរសាទរ! អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ"
                     Margin="0 40 0 0"
-                    Foreground="White"
+                    Foreground="Black"
                     FontSize="30"/>
             </Grid>
         </StackPanel>
         <Border Grid.Row="1" Margin="80 30 80 10"
                 CornerRadius="10 10 10 10"
-                BorderBrush="{StaticResource Primary-color}"
+                BorderBrush="{StaticResource Secondary-color}"
                 BorderThickness="4">
             <StackPanel Orientation="Horizontal">
                 <Border Height="300" Width="300"
@@ -52,26 +52,25 @@
                 </Border>
                 <Border Height="300" Width="300" 
                         CornerRadius="150" 
-                        BorderBrush="{StaticResource Secondary-background}"
+                        BorderBrush="black"
                         BorderThickness="2"
-                        Margin="250 10 0 0">
-                    <Border.Background>
-                        #FF9D3C
-                    </Border.Background>
+                        Margin="250 10 0 0"
+                        Background="{StaticResource Secondary-color}">
                     <StackPanel>
                         <TextBlock Text="ពិន្ទុសរុប" TextAlignment="Center"
                                    FontFamily="{StaticResource Moul}"
-                                   Foreground="{StaticResource Secondary-color}"
+                                   Foreground="black"
                                    FontSize="35" Margin="40">
                             
                         </TextBlock>
-                        <Border BorderBrush="{StaticResource Secondary-color}"
+                        <Border BorderBrush="black"
                                 BorderThickness="2">
                             
                         </Border>
                         <TextBlock Text="100" TextAlignment="Center"
+                                   x:Name="textblockScore"
                                    FontFamily="{StaticResource Suwannaphum}"
-                                   Foreground="{StaticResource Secondary-color}"
+                                   Foreground="black"
                                    FontSize="70">
 
                         </TextBlock>
@@ -83,13 +82,15 @@
                     HorizontalAlignment="Right"
                     Margin="0 0 80 0">
             <Button Height="50" Width="160"
+                    x:Name="buttonagain"
+                    Click="buttonagain_Click"
                     FontSize="20" Margin="0 0 30 0"
-                    Style="{StaticResource buttonstyle}">
+                    Style="{StaticResource newbuttonstyle}">
                 សាកល្បងម្ដងទៀត
             </Button>
             <Button Height="50" Width="120"
                     FontSize="20"
-                    Style="{StaticResource buttonstyle}">
+                    Style="{StaticResource newbuttonstyle}">
                 ទំព័រដើម
             </Button>
         </StackPanel>

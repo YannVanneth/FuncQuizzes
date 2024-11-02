@@ -60,6 +60,7 @@
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
                             x:Name="buttonbeginer"
+                            Click="buttonbeginer_Click"
                             Margin="20"
                             Style="{StaticResource newbuttonstyle}"
                             Height="40">
@@ -67,6 +68,7 @@
                     </Button>
                     <Button Grid.Row="1"
                             x:Name="buttonnormal"
+                            Click="buttonbeginer_Click"
                             Margin="20"
                             Style="{StaticResource newbuttonstyle}"
                             Height="40">
@@ -74,6 +76,7 @@
                     </Button>
                     <Button Grid.Row="2"
                             Margin="20"
+                            Click="buttonbeginer_Click"
                             x:Name="buttonhard"
                             Style="{StaticResource newbuttonstyle}"
                             Height="40">
@@ -87,15 +90,26 @@
                 </Border.Background>
             </Border>
         </Grid>
-        <Button Grid.Row="2"
-                x:Name="chooselevelback"
-                Click="chooselevelback_Click"
-                Height="50" Width="150"
-                HorizontalAlignment="Right"
-                FontSize="20"
-                Style="{StaticResource newbuttonstyle}"
-                Margin="0 0 50 0">
-            ទំព័រដើម
-        </Button>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button x:Name="chooselevelhome"
+                    Click="chooselevelhome_Click"
+                    Height="50" Width="150"
+                    HorizontalAlignment="Right"
+                    FontSize="20"
+                    Style="{StaticResource newbuttonstyle}"
+                    Margin="0 0 50 0">
+                ត្រឡប់ក្រោយ
+            </Button>
+            <Button x:Name="chooselevelback"
+                    Click="chooselevelback_Click"
+                    Height="50" Width="150"
+                    HorizontalAlignment="Right"
+                    FontSize="20"
+                    Style="{StaticResource newbuttonstyle}"
+                    Margin="0 0 50 0">
+                ទំព័រដើម
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

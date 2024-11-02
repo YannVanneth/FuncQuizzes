@@ -34,5 +34,48 @@ namespace FuncQuizzes.pages
                 mainWindow.Main.Content = new pages.HomeScreen();
             }
         }
+
+        private void loadpage()
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.Main.Content = new pages.questionpage();
+            }
+        }
+
+        private void buttonbeginer_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (button != null)
+            {
+                if (button.Content.ToString() == "កម្រិតទាប")
+                {
+                    ((App)Application.Current).GlobalLevelId = 1;
+                    loadpage();
+                }
+                else if (button.Content.ToString() == "កម្រិតមធ្យម")
+                {
+                    ((App)Application.Current).GlobalLevelId = 2;
+                    loadpage();
+                }
+                else if (button.Content.ToString() == "កម្រិតខ្ពស់")
+                {
+                    ((App)Application.Current).GlobalLevelId = 3;
+                    loadpage();
+                }
+                
+            }
+        }
+
+        private void chooselevelhome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.Main.Content = new pages.selectcategory();
+            }
+        }
     }
 }

@@ -9,7 +9,9 @@ namespace FuncQuizzes
     /// </summary>
     public partial class App : Application
     {
-        
+        public int GlobalCategoryId { get; set; }
+        public int GlobalLevelId { get; set; }
+        public int totalScore { get; set; }
     }
 
 }

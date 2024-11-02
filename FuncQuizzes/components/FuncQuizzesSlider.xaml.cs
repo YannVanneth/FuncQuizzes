@@ -62,7 +62,7 @@ namespace FuncQuizzes.components
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.Main.Content = new pages.chooselevel();
+                mainWindow.Main.Content = new pages.selectcategory();
             }
         }
 

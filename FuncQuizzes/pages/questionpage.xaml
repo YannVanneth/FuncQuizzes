@@ -44,29 +44,43 @@
                        FontFamily="{StaticResource Suwannaphum}"
                        Foreground="Black"
                        FontSize="30">
-                តើអ្នកចូលចិត្តស្រលាញ់គេម្នាក់ឯងទេ?
             </TextBlock>
             <Button x:Name="buttonanswer2"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
                     Height="40" Style="{StaticResource newbuttonstyle}">
-                ចូលចិត្តបន្តិចបន្តួច
             </Button>
             <Button x:Name="buttonanswer3"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
                     Height="40" Style="{StaticResource newbuttonstyle}">
-                មិនសូវចូលចិត្តទេ
+                
             </Button>
             <Button x:Name="buttonanswer4"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
                     Height="40" Style="{StaticResource newbuttonstyle}">
-                មិនចូលចិត្តសូម្បីបន្តិច
+                
             </Button>
+            <StackPanel Orientation="Horizontal"
+                        x:Name="stackanswer"
+                        Height="40"
+                        Margin="0 30 0 0">
+                <TextBlock x:Name="wrongrightname"
+                           FontSize="25"
+                           Margin="0 0 20 0"
+                           FontFamily="{StaticResource Suwannaphum}"/>
+                <Border Height="40" Width="40"
+                        x:Name="borderwrongright">
+                </Border>
+
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
@@ -75,7 +89,9 @@
                     <ImageBrush ImageSource="../assets/images/back.png" Stretch="UniformToFill"/>
                 </Border.Background>
             </Border>
-            <Border Height="60" Width="60">
+            <Border Height="60" Width="60"
+                    x:Name="buttonNext"
+                    MouseDown="buttonNext_MouseDown">
                 <Border.Background>
                     <ImageBrush ImageSource="../assets/images/next-button.png" Stretch="UniformToFill"/>
                 </Border.Background>
