@@ -26,11 +26,13 @@ namespace FuncQuizzes.pages
         }
         private void loadpage()
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.chooselevel();
-            }
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.chooselevel();
+            //}
+
+            App.SwitchPage(new pages.chooselevel());
         }
         private void buttoncategorycpp_Click(object sender, RoutedEventArgs e)
         {
@@ -64,11 +66,13 @@ namespace FuncQuizzes.pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.HomeScreen();
-            }
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.HomeScreen();
+            //}
+
+            App.SwitchPage(new pages.HomeScreen());
         }
     }
 }
