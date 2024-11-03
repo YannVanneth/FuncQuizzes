@@ -38,9 +38,9 @@ namespace FuncQuizzes.features
 
         private readonly SQLiteConnection _connection;
 
-        public Database()
+        public Database(string dataBase_Path)
         {
-            _connection = new SQLiteConnection("Data Source=DATA\\testing.sqlite");
+            _connection = new SQLiteConnection($"Data Source={dataBase_Path}");
         }
 
         public DataTable SelectQuery(string query)

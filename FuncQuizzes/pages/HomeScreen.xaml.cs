@@ -5,14 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace FuncQuizzes.pages
 {
@@ -36,15 +31,7 @@ namespace FuncQuizzes.pages
         {
             this.ActiveBorder(this.AboutUsPageBorder.BorderBrush);
 
-            if (Application.Current.MainWindow is MainWindow mainWindow)
-            {
-                mainWindow.Main.Content = new pages.AboutUs();
-
-                if(mainWindow.Main.Content is HomeScreen)
-                {
-                  this.ActiveBorder(this.HomePageBorder.BorderBrush);
-                }
-            }
+            App.SwitchPage(new pages.AboutUs());
 
         }
 
@@ -86,6 +73,24 @@ namespace FuncQuizzes.pages
                 this.AboutIcon.Color = new SolidColorBrush(Colors.White);
                 this.HistoryIcon.Color = new SolidColorBrush(Colors.Orange);
                 this.HomeIcon.Color = new SolidColorBrush(Colors.White);
+            }
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (this.SearchBox.Text == "ស្វែងរក")
+            {
+                this.SearchBox.Text = "";
+                this.SearchBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void SearchBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (this.SearchBox.Text == "ស្វែងរក" || this.SearchBox.Text == string.Empty)
+            {
+                this.SearchBox.Text = "ស្វែងរក";
+                this.SearchBox.Foreground = Brushes.Black;
             }
         }
     }
