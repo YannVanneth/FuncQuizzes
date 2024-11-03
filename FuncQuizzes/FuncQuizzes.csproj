@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="features\" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
   </ItemGroup>
 
   <ItemGroup>

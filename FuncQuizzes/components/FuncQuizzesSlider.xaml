@@ -60,7 +60,7 @@
                         <RowDefinition Height="70"/>
                     </Grid.RowDefinitions>
 
-                    <Border HorizontalAlignment="Center"
+                    <Border HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             Grid.Row="0">
                         <local:SliderCardDetails Height="161"
@@ -70,6 +70,8 @@
                     <Button Grid.Row="1"
                             Content="ចាប់ផ្ដើម"
                             VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="40 0"
                             FontFamily="{DynamicResource Kantumruy_Pro}"
                             Style="{DynamicResource GetStartedBtn}"
                             x:Name="GetStartbtn"

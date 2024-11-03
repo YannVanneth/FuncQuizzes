@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace FuncQuizzes.components
         public ContentList()
         {
             InitializeComponent();
+            LoadContent();
         }
 
         private void InnerScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -41,6 +43,19 @@ namespace FuncQuizzes.components
         private void TopicCard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Clicked");
+        }
+
+        private void LoadContent()
+        {
+            features.Database database = new features.Database("DATA\\FuncQuizzes.sqlite");
+            DataTable data = database.SelectFromTable("tbl_category");
+
+            this.ListContent.Children.Clear();
+            
+            foreach (DataRow row in data.Rows) 
+            {
+                this.ListContent.Children.Add(new TextBlock() { Text = row[1].ToString() });
+            }
         }
     }
 }

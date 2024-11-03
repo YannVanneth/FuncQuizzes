@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -60,10 +61,7 @@ namespace FuncQuizzes.components
 
         private void GetStartbtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.MainWindow is MainWindow mainWindow)
-            {
-                mainWindow.Main.Content = new pages.selectcategory();
-            }
+            App.SwitchPage(new pages.selectcategory());
         }
 
         private void InitializeSliderContent()

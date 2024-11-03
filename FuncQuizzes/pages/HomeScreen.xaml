@@ -33,11 +33,14 @@
 
             <Border Grid.Column="1">
                 <TextBox Style="{StaticResource SearchBox}"
+                         x:Name="SearchBox"
                          Text="ស្វែងរក"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Left"
                          FontFamily="{DynamicResource Kantumruy_Pro}"
-                         FontWeight="Bold"/>
+                         FontWeight="Bold"
+                         GotFocus="TextBox_GotFocus"
+                         LostFocus="SearchBox_LostFocus"/>
             </Border>
 
             <StackPanel Orientation="Horizontal"
