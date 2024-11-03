@@ -21,6 +21,10 @@ namespace FuncQuizzes
         {
             mainWindow.Show();
         }
+        
+        public int GlobalCategoryId { get; set; }
+        public int GlobalLevelId { get; set; }
+        public int totalScore { get; set; }
     }
 
 }

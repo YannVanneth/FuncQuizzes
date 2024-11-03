@@ -12,30 +12,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0"
-                    Height="80" Width="140"
-                    BorderBrush="#C5E1F6"
-                    BorderThickness="2"
-                    Margin="0 40 0 0"
-                    CornerRadius="5 5 5 5">
+                        Height="80" Width="140"
+                        BorderBrush="#C5E1F6"
+                        BorderThickness="2"
+                        Margin="0 40 0 0"
+                        CornerRadius="5 5 5 5">
                     <Border.Background>
                         <ImageBrush ImageSource="../assets/icons/func.jpg"/>
                     </Border.Background>
 
                 </Border>
                 <TextBlock Grid.Column="1"
-                       FontFamily="{StaticResource Moul}"
-                       Text="សូមជ្រើសរើសមុខវិជ្ជាដើម្បីជ្រើសរើសកម្រិតសំណួរ"
-                       Margin="0 50 0 0"
-                       Foreground="White"
-                       FontSize="30"/>
+                           FontFamily="{StaticResource Moul}"
+                           Text="សូមជ្រើសរើសមុខវិជ្ជាដើម្បីជ្រើសរើសកម្រិតសំណួរ"
+                           Margin="0 50 0 0"
+                           Foreground="Black"
+                           FontSize="30"/>
             </Grid>
         </StackPanel>
         <Grid Grid.Row="1" VerticalAlignment="Center">
@@ -52,27 +53,35 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
-                        Style="{StaticResource buttonstyle}"
-                        Margin="120 20 20 20"
-                        Height="40">
+                            x:Name="buttoncategorycpp"
+                            Click="buttoncategorycpp_Click"
+                            Style="{StaticResource newbuttonstyle}"
+                            Margin="120 20 20 20"
+                            Height="40">
                         CPP
                     </Button>
                     <Button Grid.Row="1"
-                        Margin="120 20 20 20"
-                        Style="{StaticResource buttonstyle}"
-                        Height="40">
+                            x:Name="buttoncategorycsharp"
+                            Click="buttoncategorycpp_Click"
+                            Margin="120 20 20 20"
+                            Style="{StaticResource newbuttonstyle}"
+                            Height="40">
                         C#
                     </Button>
                     <Button Grid.Row="2"
-                        Style="{StaticResource buttonstyle}"
-                        Margin="120 20 20 20"
-                        Height="40">
+                            x:Name="buttoncategoryflutter"
+                            Click="buttoncategorycpp_Click"
+                            Style="{StaticResource newbuttonstyle}"
+                            Margin="120 20 20 20"
+                            Height="40">
                         FLUTTER
                     </Button>
                     <Button Grid.Row="3"
-                        Style="{StaticResource buttonstyle}"
-                        Margin="120 20 20 20"
-                        Height="40">
+                            Click="buttoncategorycpp_Click"
+                            x:Name="buttoncategorygeneralknowlege"
+                            Style="{StaticResource newbuttonstyle}"
+                            Margin="120 20 20 20"
+                            Height="40">
                         ចំណេះដឺងទូទៅ
                     </Button>
                 </Grid>
@@ -86,33 +95,29 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" x:Name="bordercppunlock"
-                        HorizontalAlignment="Left"
-                        Margin="0 20 0 20"
-                        Height="40" Width="40">
+                            Margin="0 20 120 20"
+                            Height="40" Width="40">
                         <Border.Background>
                             <ImageBrush ImageSource="../assets/images/unlock.png"/>
                         </Border.Background>
                     </Border>
                     <Border Grid.Row="1"
-                        HorizontalAlignment="Left"
-                        Margin="0 20 0 20"
-                        Height="40" Width="40">
+                            Margin="0 20 120 20"
+                            Height="40" Width="40">
                         <Border.Background>
                             <ImageBrush ImageSource="../assets/images/padlock.png"/>
                         </Border.Background>
                     </Border>
                     <Border Grid.Row="2"
-                        HorizontalAlignment="Left"
-                        Margin="0 20 0 20"
-                        Height="40" Width="40">
+                            Margin="0 20 120 20"
+                            Height="40" Width="40">
                         <Border.Background>
                             <ImageBrush ImageSource="../assets/images/padlock.png"/>
                         </Border.Background>
                     </Border>
                     <Border Grid.Row="3"
-                        HorizontalAlignment="Left"
-                        Margin="0 20 0 20"
-                        Height="40" Width="40">
+                            Margin="0 20 120 20"
+                            Height="40" Width="40">
                         <Border.Background>
                             <ImageBrush ImageSource="../assets/images/padlock.png"/>
                         </Border.Background>
@@ -120,5 +125,13 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        <Button Grid.Row="2"
+                Height="40" Width="150"
+                Click="Button_Click"
+                HorizontalAlignment="Right"
+                Margin="0 0 170 0"
+                Style="{StaticResource newbuttonstyle}">
+            ត្រឡប់ក្រោយ
+        </Button>
     </Grid>
 </Page>
