@@ -54,14 +54,14 @@ namespace FuncQuizzes.pages
                 currentQuestionIndex++;
             }
         }
-        private void switchpage() 
-        {
-            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.selectcategory();
-            }
-        }
+        //private void switchpage() 
+        //{
+        //    MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+        //    if (mainWindow != null)
+        //    {
+        //        mainWindow.Main.Content = new pages.selectcategory();
+        //    }
+        //}
         private void LoadQuestion()
         {
             
@@ -82,7 +82,8 @@ namespace FuncQuizzes.pages
             {
                 // No questions found, show message and switch page
                 MessageBox.Show("No questions found for this category and level.");
-                switchpage();
+                //switchpage();
+                App.SwitchPage(new pages.selectcategory());
                 return;
             }
             while (reader.Read())
@@ -114,17 +115,18 @@ namespace FuncQuizzes.pages
             }
             else
             {
-                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                if (mainWindow != null)
-                {
-                    mainWindow.Main.Content = new pages.ScoreScreen();
-                }
+                //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                //if (mainWindow != null)
+                //{
+                //    mainWindow.Main.Content = new pages.ScoreScreen();
+                //}
+
+                App.SwitchPage(new pages.ScoreScreen());
             }
         }
         private void LoadAnswers(int questionId)
         {
-            string connectionString = "Data source=DATA\\FuncQuizzes.sqlite";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
             {
                 connection.Open();
                 //query to select answer 
