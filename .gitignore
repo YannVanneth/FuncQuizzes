@@ -6,4 +6,4 @@
 FuncQuizzes/.vs/
 FuncQuizzes/obj/
 FuncQuizzes/bin/
-!FuncQuizzes/FuncQuizzes/bin\Debug/net8.0-windows/DATA/*
+!FuncQuizzes/bin/Debug/net8.0-windows/DATA/*
