@@ -69,7 +69,7 @@ namespace FuncQuizzes.pages
             int levelid = ((App)Application.Current).GlobalLevelId;
 
 
-            SQLiteConnection con = new SQLiteConnection("Data source=funcquiz.sqlite");
+            SQLiteConnection con = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite");
             con.Open();
             string questionQuery = "SELECT id_question, question FROM tbl_questions WHERE id_category = @CategoryId AND id_level = @LevelId ORDER BY RANDOM() LIMIT 10";
             SQLiteCommand command = new SQLiteCommand(questionQuery, con);
@@ -126,8 +126,7 @@ namespace FuncQuizzes.pages
         }
         private void LoadAnswers(int questionId)
         {
-            string connectionString = "Data source=funcquiz.sqlite";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
             {
                 connection.Open();
                 //query to select answer 
