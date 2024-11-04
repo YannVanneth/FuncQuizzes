@@ -6,13 +6,18 @@
              xmlns:local="clr-namespace:FuncQuizzes.components"
              mc:Ignorable="d" Name="this"
              d:DesignHeight="218" d:DesignWidth="762"
-             Height="218" Width="702">
+             Height="218" Width="708">
     <Border CornerRadius="20"
-            Background="{DynamicResource Secondary-background}"
-            Padding="40">
-        <Grid>
-            <!-- Define the Column -->
-            <Grid.ColumnDefinitions>
+            Padding="30"
+            BorderThickness="0.4"
+            BorderBrush="Black">
+        <Border.Background>
+            <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}"/>
+        </Border.Background>
+        
+        <!--<Grid>
+            --><!-- Define the Column -->
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
@@ -36,8 +41,7 @@
                            TextWrapping="Wrap"
                            FontWeight="Bold"
                            Foreground="{DynamicResource Primary-color}"/>
-            </StackPanel>
-
-        </Grid>
+            </StackPanel>--><!--
+        </Grid>-->
     </Border>
 </UserControl>

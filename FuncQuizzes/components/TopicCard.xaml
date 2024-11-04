@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FuncQuizzes.components"
              mc:Ignorable="d" Name="this"
              d:DesignHeight="100" d:DesignWidth="100">
-    
+
     <Border CornerRadius="17"
             Height="100"
             Width="100"
@@ -14,14 +14,16 @@
             BorderThickness="0.4"
             BorderBrush="Black"
             Background="{Binding Background, ElementName=this}"
-            Padding="2">
+            Padding="5">
         <Border.Clip>
             <RectangleGeometry Rect="0,0,100,100" RadiusX="17" RadiusY="17"/>
         </Border.Clip>
+        
         <Grid VerticalAlignment="Center"
               HorizontalAlignment="Center">
             <Image Source="{Binding Image, ElementName=this}"
-                   Margin="{Binding Margin, ElementName=this}"/>
+                   Margin="{Binding Margin, ElementName=this}"
+                   Stretch="UniformToFill"/>
         </Grid>
         
     </Border>

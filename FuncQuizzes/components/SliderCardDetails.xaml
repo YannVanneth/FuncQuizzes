@@ -33,7 +33,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Background="{DynamicResource Primary-color}"
+            <Border Background="#7F9BB0"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
                     Padding="4 8"
@@ -41,7 +41,8 @@
                     CornerRadius="18">
                 <TextBlock Text="កម្រិតសំណួរ"
                            Margin="10 0"
-                           Style="{StaticResource HeaderText}"/>
+                           Style="{StaticResource HeaderText}"
+                           Foreground="White"/>
             </Border>
 
             <StackPanel Grid.Row="1"

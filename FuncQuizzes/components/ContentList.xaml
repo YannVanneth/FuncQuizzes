@@ -26,14 +26,16 @@
 
             <Border Grid.Row="0"
                     Style="{StaticResource ContentCategoryLabel}"
-                    Background="{DynamicResource Primary-color}"
+                    Background="#7F9BB0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Padding="15 0"
+                    Padding="15 2"
+                    Height="auto"
                     Width="auto">
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"
+                            Margin="5">
                     <TextBlock x:Name="CategoryName"
-                               Text="All Category"
+                               Text="All Categorys"
                                VerticalAlignment="Center"
                                FontFamily="{DynamicResource Kantumruy_Pro}"
                                FontSize="22"

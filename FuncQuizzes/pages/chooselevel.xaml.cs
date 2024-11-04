@@ -27,21 +27,24 @@ namespace FuncQuizzes.pages
 
         private void chooselevelback_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+            //MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
 
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.HomeScreen();
-            }
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.HomeScreen();
+            //}
+
+            App.SwitchPage(new pages.HomeScreen());
         }
 
         private void loadpage()
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.questionpage();
-            }
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.questionpage();
+            //}
+            App.SwitchPage(new pages.questionpage());
         }
 
         private void buttonbeginer_Click(object sender, RoutedEventArgs e)
@@ -71,11 +74,13 @@ namespace FuncQuizzes.pages
 
         private void chooselevelhome_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.selectcategory();
-            }
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.selectcategory();
+            //}
+
+            App.SwitchPage(new pages.selectcategory());
         }
     }
 }

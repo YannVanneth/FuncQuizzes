@@ -21,7 +21,7 @@
     <Border CornerRadius="12">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -75,7 +75,8 @@
                             FontFamily="{DynamicResource Kantumruy_Pro}"
                             Style="{DynamicResource GetStartedBtn}"
                             x:Name="GetStartbtn"
-                            Click="GetStartbtn_Click"/>
+                            Click="GetStartbtn_Click"
+                            Background="#7F9BB0"/>
                 </Grid>
             </Border>
         </Grid>
