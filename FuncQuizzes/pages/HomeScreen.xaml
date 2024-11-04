@@ -26,8 +26,9 @@
 
             <Border x:Name="Logo"
                     Grid.Column="0"
-                    Height="80"
-                    Margin="-30 0 0 0">
+                    Height="60"
+                    HorizontalAlignment="Left"
+                    Margin="10 0">
                 <Image Source="../assets/images/FuncQuizzes.png"/>
             </Border>
 
@@ -128,10 +129,11 @@
             </Border>
             
             <ScrollViewer Grid.Column="1"
-                          VerticalScrollBarVisibility="Hidden">
+                          VerticalScrollBarVisibility="Hidden"
+                          HorizontalAlignment="Stretch">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="300"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
@@ -142,8 +144,6 @@
 
                     <Border Grid.Row="1">
                         <StackPanel>
-                            <FuncQuizzes:ContentList/>
-                            <FuncQuizzes:ContentList/>
                             <FuncQuizzes:ContentList/>
                         </StackPanel>
                     </Border>

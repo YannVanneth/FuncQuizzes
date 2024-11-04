@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
@@ -66,16 +68,31 @@ namespace FuncQuizzes.components
 
         private void InitializeSliderContent()
         {
+            var slide01 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerA.png")));
+            slide01.MouseDown += SliderClick;
+            slide01.Cursor = Cursors.Hand;
+
+            var slide02 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerB.png")));
+            slide02.MouseDown += SliderClick;
+            slide02.Cursor = Cursors.Hand;
+
+            var slide03 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerC.png")));
+            slide03.MouseDown += SliderClick;
+            slide03.Cursor = Cursors.Hand;
+
             content = new List<SlideBanner>
             {
-                new SlideBanner("C++ Programming", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandCpp.png"))),
-                new SlideBanner("Let's go! With Python", new BitmapImage(new Uri("pack://application:,,,/assets/images/Python.png"))),
-                new SlideBanner("Hello, JavaScript", new BitmapImage(new Uri("pack://application:,,,/assets/images/JavaScript.png"))),
-                new SlideBanner("Hah C Again!", new BitmapImage(new Uri("pack://application:,,,/assets/images/Cpp.png"))),
-
+                slide01, slide02, slide03
             };
 
             UpdateSlide();
+        }
+
+        private void SliderClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var slide = (SlideBanner)sender;
+
+            MessageBox.Show($"{Path.GetFileName(slide.ContentImage.ToString())}");
         }
 
         private void SetupTimer()

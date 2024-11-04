@@ -31,11 +31,13 @@ namespace FuncQuizzes.pages
 
         private void buttonagain_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.selectcategory();
-            }
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.selectcategory();
+            //}
+
+            App.SwitchPage(new pages.selectcategory());
         }
     }
 }

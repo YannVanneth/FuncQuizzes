@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace FuncQuizzes.components
 {
@@ -51,11 +52,35 @@ namespace FuncQuizzes.components
             DataTable data = database.SelectFromTable("tbl_category");
 
             this.ListContent.Children.Clear();
-            
-            foreach (DataRow row in data.Rows) 
+
+            foreach (DataRow row in data.Rows)
             {
-                this.ListContent.Children.Add(new TextBlock() { Text = row[1].ToString() });
+                try
+                {
+                    TopicCard topicCard = new TopicCard
+                    {
+                        Image = new BitmapImage(new Uri($"{Directory.GetCurrentDirectory()}\\DATA\\Assets\\{row[1]}.png")),
+                        BackgroundColor = new SolidColorBrush(Colors.Transparent),
+                        Cursor = Cursors.Hand
+                    };
+
+                    topicCard.MouseDown += TopicCardEvent;
+
+                    this.ListContent.Children.Add(topicCard);
+                }
+                catch (Exception ex)
+                {
+                    this.ListContent.Children.Add(new TextBlock() { Text = $"{row[1]}" });
+                }
             }
+        }
+
+
+        private void TopicCardEvent(object sender, MouseButtonEventArgs e)
+        {
+            TopicCard path = (TopicCard)sender;
+
+            MessageBox.Show($"{System.IO.Path.GetFileName(path.Image.ToString())}");
         }
     }
 }
