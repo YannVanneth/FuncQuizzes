@@ -29,7 +29,7 @@
                     Background="#7F9BB0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Padding="15 2"
+                    Padding="10 0"
                     Height="auto"
                     Width="auto">
                 <StackPanel Orientation="Horizontal"
@@ -38,7 +38,7 @@
                                Text="All Categorys"
                                VerticalAlignment="Center"
                                FontFamily="{DynamicResource Kantumruy_Pro}"
-                               FontSize="22"
+                               FontSize="18"
                                FontWeight="Bold"
                                Foreground="White"/>
                     <Image Source="../assets/icons/programming.png"

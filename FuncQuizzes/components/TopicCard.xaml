@@ -7,16 +7,16 @@
              mc:Ignorable="d" Name="this"
              d:DesignHeight="100" d:DesignWidth="100">
 
-    <Border CornerRadius="17"
-            Height="100"
-            Width="100"
+    <Border CornerRadius="{Binding Raduis,ElementName=this}"
+            Height="{Binding Size, ElementName=this}"
+            Width="{Binding Size, ElementName=this}"
             Margin="0 0 10 0"
             BorderThickness="0.4"
             BorderBrush="Black"
             Background="{Binding Background, ElementName=this}"
             Padding="5">
         <Border.Clip>
-            <RectangleGeometry Rect="0,0,100,100" RadiusX="17" RadiusY="17"/>
+            <RectangleGeometry Rect="0,0,100,100" RadiusX="{Binding Raduis,ElementName=this}" RadiusY="{Binding Raduis,ElementName=this}"/>
         </Border.Clip>
         
         <Grid VerticalAlignment="Center"

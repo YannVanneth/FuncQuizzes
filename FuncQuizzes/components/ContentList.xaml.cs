@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Path = System.IO.Path;
 
 namespace FuncQuizzes.components
 {
@@ -59,9 +60,11 @@ namespace FuncQuizzes.components
                 {
                     TopicCard topicCard = new TopicCard
                     {
-                        Image = new BitmapImage(new Uri($"{Directory.GetCurrentDirectory()}\\DATA\\Assets\\{row[1]}.png")),
+                        Image = new BitmapImage(new Uri($"{Directory.GetCurrentDirectory()}\\DATA\\Assets\\{row[2]}.png")),
                         BackgroundColor = new SolidColorBrush(Colors.Transparent),
-                        Cursor = Cursors.Hand
+                        Cursor = Cursors.Hand,
+                        Size = 100,
+                        Raduis = 17
                     };
 
                     topicCard.MouseDown += TopicCardEvent;
@@ -70,17 +73,37 @@ namespace FuncQuizzes.components
                 }
                 catch (Exception ex)
                 {
-                    this.ListContent.Children.Add(new TextBlock() { Text = $"{row[1]}" });
+                    this.ListContent.Children.Add(new TextBlock() { Text = $"{row[2]}" });
                 }
             }
         }
-
-
-        private void TopicCardEvent(object sender, MouseButtonEventArgs e)
+        public void TopicCardEvent(object sender, MouseButtonEventArgs e)
         {
             TopicCard path = (TopicCard)sender;
 
-            MessageBox.Show($"{System.IO.Path.GetFileName(path.Image.ToString())}");
+            if (path != null)
+            {
+                if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "CPP")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 1;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "C%23")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 2;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()).ToUpper() == "FLUTTER")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 3;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "ចំណេះដឺងទូទៅ")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 4;
+                    new pages.selectcategory().loadpage();
+                }
+            }
         }
     }
 }

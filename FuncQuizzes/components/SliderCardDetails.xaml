@@ -23,50 +23,43 @@
             <Setter Property="Foreground" Value="Black"/>
         </Style>
     </UserControl.Resources>
-    
-    <Border CornerRadius="18"
-            Background="{DynamicResource Secondary-background}">
 
+    <Border CornerRadius="18" Background="{DynamicResource Secondary-background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            Padding="0 20">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <!-- Allows height to adjust based on content -->
+                <RowDefinition Height="*"/>
+                <!-- Fills remaining space -->
             </Grid.RowDefinitions>
 
             <Border Background="#7F9BB0"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Stretch"
                     Padding="4 8"
                     Margin="15 0"
                     CornerRadius="18">
                 <TextBlock Text="កម្រិតសំណួរ"
                            Margin="10 0"
-                           Style="{StaticResource HeaderText}"
-                           Foreground="White"/>
+                           Style="{StaticResource HeaderText}"/>
             </Border>
 
             <StackPanel Grid.Row="1"
-                        Margin="25 0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="ងាយស្រួល"
-                               Style="{StaticResource SubText}"/>
-                    <TextBlock Text="10 សំណួរ"
-                               Margin="24 0"
-                               Style="{StaticResource SubText}"/>
+                        Margin="25 20"
+                        HorizontalAlignment="Stretch">
+                <!-- Allows it to stretch -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="ងាយស្រួល" Style="{StaticResource SubText}"/>
+                    <TextBlock Text="10 សំណួរ" Margin="24 0" Style="{StaticResource SubText}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="មធ្យម"
-                               Style="{StaticResource SubText}"/>
-                    <TextBlock Text="10 សំណួរ"
-                               Style="{StaticResource SubText}"
-                               Margin="50 0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="មធ្យម" Style="{StaticResource SubText}"/>
+                    <TextBlock Text="10 សំណួរ" Margin="50 0" Style="{StaticResource SubText}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="ពិបាក"
-                               Style="{StaticResource SubText}"/>
-                    <TextBlock Text="10 សំណួរ"
-                               Style="{StaticResource SubText}"
-                               Margin="50 0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="ពិបាក" Style="{StaticResource SubText}"/>
+                    <TextBlock Text="10 សំណួរ" Margin="50 0" Style="{StaticResource SubText}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

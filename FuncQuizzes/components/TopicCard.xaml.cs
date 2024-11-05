@@ -41,12 +41,20 @@ namespace FuncQuizzes.components
 
         public static readonly DependencyProperty BackgroundColorProperty = DependencyProperty.Register("Background", typeof(SolidColorBrush), typeof(TopicCard));
 
-        public double ImageMagin
+        public double Size
         {
-            get { return (double)GetValue(ImageMarginProperty); }
-            set { SetValue(ImageMarginProperty, value); }
+            get { return (double)GetValue(HeightProperty); }
+            set { SetValue(HeightProperty, value); }
         }
 
-        public static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register("Margin", typeof(double), typeof(TopicCard));
+        public static readonly DependencyProperty HeightProperty = DependencyProperty.Register("Size", typeof(double), typeof(TopicCard));
+
+        public double Raduis
+        {
+            get { return (double)GetValue(RaduisProperty); }
+            set { SetValue(RaduisProperty, value); }
+        }
+
+        public static readonly DependencyProperty RaduisProperty = DependencyProperty.Register("Raduis", typeof(double), typeof(TopicCard));
     }
 }

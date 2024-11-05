@@ -5,43 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FuncQuizzes.components"
              mc:Ignorable="d" Name="this"
-             d:DesignHeight="218" d:DesignWidth="762"
-             Height="218" Width="708">
+             d:DesignHeight="218" d:DesignWidth="762">
+    
     <Border CornerRadius="20"
-            Padding="30"
             BorderThickness="0.4"
-            BorderBrush="Black">
+            BorderBrush="Black"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
         <Border.Background>
-            <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}"/>
+            <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}" Stretch="UniformToFill"/>
         </Border.Background>
-        
-        <!--<Grid>
-            --><!-- Define the Column -->
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0"
-                    Width="180"
-                    HorizontalAlignment="Center"
-                    CornerRadius="18"
-                    Margin="0 0 15 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}" />
-                </Border.Background>
-            </Border>
-
-            <StackPanel Grid.Column="1"
-                      VerticalAlignment="Center"
-                      Margin="0 0 10 0"
-                        HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Text, ElementName=this}"
-                           FontSize="38"
-                           TextWrapping="Wrap"
-                           FontWeight="Bold"
-                           Foreground="{DynamicResource Primary-color}"/>
-            </StackPanel>--><!--
-        </Grid>-->
     </Border>
 </UserControl>

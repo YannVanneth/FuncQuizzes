@@ -24,7 +24,7 @@ namespace FuncQuizzes.pages
         {
             InitializeComponent();
         }
-        private void loadpage()
+        public void loadpage()
         {
             App.SwitchPage(new pages.chooselevel());
         }
