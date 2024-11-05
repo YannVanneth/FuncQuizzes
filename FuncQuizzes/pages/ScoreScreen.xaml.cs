@@ -39,5 +39,10 @@ namespace FuncQuizzes.pages
 
             App.SwitchPage(new pages.selectcategory());
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.SwitchPage(new pages.HomeScreen());
+        }
     }
 }

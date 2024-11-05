@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection.PortableExecutable;
 using System.Data;
+using System.Windows.Threading;
 
 namespace FuncQuizzes.pages
 {
@@ -26,14 +27,20 @@ namespace FuncQuizzes.pages
     }
     public partial class questionpage : Page
     {
-        private int currentQuestionIndex = 0; 
+        private int currentQuestionIndex = 0;
         private List<Question> questions = new List<Question>();
+        private DispatcherTimer delayTimer;
+        private int countdownTime = 2; // Countdown time in seconds
         public questionpage()
         {
             InitializeComponent();
             LoadQuestion();
-        }
 
+            // Initialize the timer for the delay
+            delayTimer = new DispatcherTimer();
+            delayTimer.Interval = TimeSpan.FromSeconds(2); // Set the delay duration (e.g., 2 seconds)
+            delayTimer.Tick += DelayTimer_Tick;
+        }
         private void buttonanswer2_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
@@ -51,7 +58,10 @@ namespace FuncQuizzes.pages
                     wrongrightname.Text = "មិនត្រឹមត្រូវ";
                     wrongrightname.Foreground = new SolidColorBrush(Colors.Red);
                 }
-                currentQuestionIndex++;
+                // Set the countdown time and start the delay timer
+                countdownTime = 2; // Set your delay duration in seconds
+                CountdownTextBlock.Text = $"Next question in: {countdownTime} seconds";
+                delayTimer.Start();
             }
         }
         //private void switchpage() 
@@ -62,9 +72,31 @@ namespace FuncQuizzes.pages
         //        mainWindow.Main.Content = new pages.selectcategory();
         //    }
         //}
+        // This event triggers after the delay to show the next question
+        private void DelayTimer_Tick(object sender, EventArgs e)
+        {
+            countdownTime--;
+
+            // Update the countdown display on the form
+            CountdownTextBlock.Text = $"Next question in: {countdownTime} seconds";
+
+            if (countdownTime <= 0)
+            {
+                // Stop the timer when countdown finishes
+                delayTimer.Stop();
+
+                // Clear the feedback and countdown text
+                wrongrightname.Text = string.Empty;
+                CountdownTextBlock.Text = string.Empty;
+
+                // Move to the next question
+                currentQuestionIndex++;
+                DisplayCurrentQuestion();
+            }
+        }
         private void LoadQuestion()
         {
-            
+
             int categoryid = ((App)Application.Current).GlobalCategoryId;
             int levelid = ((App)Application.Current).GlobalLevelId;
 
@@ -126,56 +158,60 @@ namespace FuncQuizzes.pages
         }
         private void LoadAnswers(int questionId)
         {
-            using (SQLiteConnection connection = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
+            try
             {
-                connection.Open();
-                //query to select answer 
-                string answerQuery = "SELECT answer, is_correct FROM tbl_answer WHERE id_question = @QuestionId LIMIT 3";
-                SQLiteCommand answerCommand = new SQLiteCommand(answerQuery, connection);
-
-                //compare questionid from table question
-                answerCommand.Parameters.AddWithValue("@QuestionId", questionId);
-                using (SQLiteDataReader reader = answerCommand.ExecuteReader())
+                using (SQLiteConnection connection = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
                 {
-                    int answerIndex = 0;
-                    while (reader.Read())
+                    connection.Open();
+
+                    // SQL query to select answers for the specified question
+                    string answerQuery = "SELECT answer, is_correct FROM tbl_answer WHERE id_question = @QuestionId LIMIT 3";
+                    SQLiteCommand answerCommand = new SQLiteCommand(answerQuery, connection);
+
+                    // Set the parameter
+                    answerCommand.Parameters.AddWithValue("@QuestionId", questionId);
+
+                    // Attempt to execute the reader
+                    using (SQLiteDataReader reader = answerCommand.ExecuteReader())
                     {
-                        //read answer from database
-                        if (answerIndex == 0)
+                        int answerIndex = 0;
+                        while (reader.Read())
                         {
-                            buttonanswer2.Content = reader["answer"].ToString();
+                            // Process the answers here
+                            string answerText = reader["answer"].ToString();
+                            bool isCorrect = Convert.ToBoolean(reader["is_correct"]);
+
+                            // Assign answer and correctness to UI buttons
+                            switch (answerIndex)
+                            {
+                                case 0:
+                                    buttonanswer2.Content = answerText;
+                                    buttonanswer2.Tag = isCorrect;
+                                    break;
+                                case 1:
+                                    buttonanswer3.Content = answerText;
+                                    buttonanswer3.Tag = isCorrect;
+                                    break;
+                                case 2:
+                                    buttonanswer4.Content = answerText;
+                                    buttonanswer4.Tag = isCorrect;
+                                    break;
+                            }
+
+                            answerIndex++;
                         }
-                        else if (answerIndex == 1)
-                        {
-                            buttonanswer3.Content = reader["answer"].ToString();
-                        }
-                        else if (answerIndex == 2)
-                        {
-                            buttonanswer4.Content = reader["answer"].ToString();
-                        }
-                        
-                        //check answer correct or incorrect
-                        if (answerIndex == 0)
-                        {
-                            buttonanswer2.Tag = reader["is_correct"];
-                        }
-                        else if (answerIndex == 1)
-                        {
-                            buttonanswer3.Tag = reader["is_correct"];
-                        }
-                        else if (answerIndex == 2)
-                        {
-                            buttonanswer4.Tag = reader["is_correct"];
-                        }
-                        answerIndex++;
                     }
                 }
             }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("SQLite error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
-        private void buttonNext_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            wrongrightname.Text = "";
-            DisplayCurrentQuestion();
-        }
+
     }
 }
