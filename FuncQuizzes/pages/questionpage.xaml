@@ -84,18 +84,10 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Border Height="60" Width="60">
-                <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/back.png" Stretch="UniformToFill"/>
-                </Border.Background>
-            </Border>
-            <Border Height="60" Width="60"
-                    x:Name="buttonNext"
-                    MouseDown="buttonNext_MouseDown">
-                <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/next-button.png" Stretch="UniformToFill"/>
-                </Border.Background>
-            </Border>
+            <TextBlock FontSize="30"
+                       FontFamily="{StaticResource Suwannaphum}"
+                       x:Name="CountdownTextBlock">
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>

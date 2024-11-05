@@ -39,97 +39,41 @@
                            FontSize="30"/>
             </Grid>
         </StackPanel>
-        <Grid Grid.Row="1" VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Margin="100 10 0 0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Button Grid.Row="0"
-                            x:Name="buttoncategorycpp"
-                            Click="buttoncategorycpp_Click"
-                            Style="{StaticResource newbuttonstyle}"
-                            Margin="120 20 20 20"
-                            Height="40">
-                        CPP
-                    </Button>
-                    <Button Grid.Row="1"
-                            x:Name="buttoncategorycsharp"
-                            Click="buttoncategorycpp_Click"
-                            Margin="120 20 20 20"
-                            Style="{StaticResource newbuttonstyle}"
-                            Height="40">
-                        C#
-                    </Button>
-                    <Button Grid.Row="2"
-                            x:Name="buttoncategoryflutter"
-                            Click="buttoncategorycpp_Click"
-                            Style="{StaticResource newbuttonstyle}"
-                            Margin="120 20 20 20"
-                            Height="40">
-                        FLUTTER
-                    </Button>
-                    <Button Grid.Row="3"
-                            Click="buttoncategorycpp_Click"
-                            x:Name="buttoncategorygeneralknowlege"
-                            Style="{StaticResource newbuttonstyle}"
-                            Margin="120 20 20 20"
-                            Height="40">
-                        ចំណេះដឺងទូទៅ
-                    </Button>
-                </Grid>
+        <StackPanel Grid.Row="1" Margin="60">
+                <Button x:Name="buttoncategorycpp"
+                        Click="buttoncategorycpp_Click"
+                        Style="{StaticResource newbuttonstyle}"
+                        Height="40">
+                    CPP
+                </Button>
+                <Button x:Name="buttoncategorycsharp"
+                        Margin="0 40 0 0"
+                        Click="buttoncategorycpp_Click"
+                        Style="{StaticResource newbuttonstyle}"
+                        Height="40">
+                    C#
+                </Button>
+                <Button x:Name="buttoncategoryflutter"
+                        Margin="0 40 0 0"
+                        Click="buttoncategorycpp_Click"
+                        Style="{StaticResource newbuttonstyle}"
+                        Height="40">
+                    FLUTTER
+                </Button>
+                <Button Click="buttoncategorycpp_Click"
+                        Margin="0 40 0 0"
+                        x:Name="buttoncategorygeneralknowlege"
+                        Style="{StaticResource newbuttonstyle}"
+                        Height="40">
+                    ចំណេះដឹងទូទៅ
+                </Button>
+
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10 10 0 0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Border Grid.Row="0" x:Name="bordercppunlock"
-                            Margin="0 20 120 20"
-                            Height="40" Width="40">
-                        <Border.Background>
-                            <ImageBrush ImageSource="../assets/images/unlock.png"/>
-                        </Border.Background>
-                    </Border>
-                    <Border Grid.Row="1"
-                            Margin="0 20 120 20"
-                            Height="40" Width="40">
-                        <Border.Background>
-                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
-                        </Border.Background>
-                    </Border>
-                    <Border Grid.Row="2"
-                            Margin="0 20 120 20"
-                            Height="40" Width="40">
-                        <Border.Background>
-                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
-                        </Border.Background>
-                    </Border>
-                    <Border Grid.Row="3"
-                            Margin="0 20 120 20"
-                            Height="40" Width="40">
-                        <Border.Background>
-                            <ImageBrush ImageSource="../assets/images/padlock.png"/>
-                        </Border.Background>
-                    </Border>
-                </Grid>
-            </StackPanel>
-        </Grid>
-        <Button Grid.Row="2"
+            <Button Grid.Row="2"
                 Height="40" Width="150"
                 Click="Button_Click"
                 HorizontalAlignment="Right"
-                Margin="0 0 170 0"
+                Margin="0 0 70 0"
                 Style="{StaticResource newbuttonstyle}">
             ត្រឡប់ក្រោយ
         </Button>
