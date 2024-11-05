@@ -27,7 +27,7 @@ namespace FuncQuizzes.pages
     }
     public partial class questionpage : Page
     {
-        private int currentQuestionIndex = 0; 
+        private int currentQuestionIndex = 0;
         private List<Question> questions = new List<Question>();
         private DispatcherTimer delayTimer;
         private int countdownTime = 2; // Countdown time in seconds
@@ -96,7 +96,7 @@ namespace FuncQuizzes.pages
         }
         private void LoadQuestion()
         {
-            
+
             int categoryid = ((App)Application.Current).GlobalCategoryId;
             int levelid = ((App)Application.Current).GlobalLevelId;
 
