@@ -12,8 +12,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -23,7 +24,7 @@
                         Height="80" Width="140"
                         BorderBrush="#C5E1F6"
                         BorderThickness="2"
-                        Margin="0 40 0 0"
+                        Margin="0 30 0 0"
                         CornerRadius="5 5 5 5">
                     <Border.Background>
                         <ImageBrush ImageSource="../assets/icons/func.jpg"/>
@@ -34,19 +35,19 @@
                            FontFamily="{StaticResource Moul}"
                            Text="សូមធ្វើការជ្រើសរើសកម្រិតដើម្បីឆ្លើយសំណួរ"
                            Margin="0 50 0 0"
-                           Foreground="White"
+                           Foreground="Black"
                            FontSize="30"/>
             </Grid>
         </StackPanel>
-        <Grid Grid.Row="1" VerticalAlignment="Center">
+        <Grid Grid.Row="1" VerticalAlignment="Center" Margin="0 80 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="0" >
+            <Border Grid.Column="0"  Margin="0 40 0 40" >
                 <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/question.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="../assets/images/questionnew.png" Stretch="Uniform"/>
                 </Border.Background>
             </Border>
             <StackPanel Grid.Column="1" Margin="20">
@@ -58,30 +59,57 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Button Grid.Row="0"
+                            x:Name="buttonbeginer"
+                            Click="buttonbeginer_Click"
                             Margin="20"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Height="40">
                         កម្រិតទាប
                     </Button>
                     <Button Grid.Row="1"
+                            x:Name="buttonnormal"
+                            Click="buttonbeginer_Click"
                             Margin="20"
-                            Style="{StaticResource buttonstyle}"
+                            Style="{StaticResource newbuttonstyle}"
                             Height="40">
                         កម្រិតមធ្យម
                     </Button>
                     <Button Grid.Row="2"
                             Margin="20"
-                            Style="{StaticResource buttonstyle}"
+                            Click="buttonbeginer_Click"
+                            x:Name="buttonhard"
+                            Style="{StaticResource newbuttonstyle}"
                             Height="40">
                         កម្រិតខ្ពស់
                     </Button>
                 </Grid>
             </StackPanel>
-            <Border Grid.Column="2" >
+            <Border Grid.Column="2" Margin="0 40 0 40" >
                 <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/question-mark.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="../assets/images/circle.png" Stretch="Uniform"/>
                 </Border.Background>
             </Border>
         </Grid>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button x:Name="chooselevelhome"
+                    Click="chooselevelhome_Click"
+                    Height="50" Width="150"
+                    HorizontalAlignment="Right"
+                    FontSize="20"
+                    Style="{StaticResource newbuttonstyle}"
+                    Margin="0 0 50 0">
+                ត្រឡប់ក្រោយ
+            </Button>
+            <Button x:Name="chooselevelback"
+                    Click="chooselevelback_Click"
+                    Height="50" Width="150"
+                    HorizontalAlignment="Right"
+                    FontSize="20"
+                    Style="{StaticResource newbuttonstyle}"
+                    Margin="0 0 50 0">
+                ទំព័រដើម
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

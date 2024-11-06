@@ -14,7 +14,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#FF9D3C">
+        <StackPanel Grid.Row="0" Background="{StaticResource Secondary-color}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -24,7 +24,7 @@
                     Height="80" Width="140"
                     BorderBrush="#C5E1F6"
                     BorderThickness="2"
-                    Margin="0 30 0 0"
+                    Margin="0 25 0 0"
                     CornerRadius="5 5 5 5">
                     <Border.Background>
                         <ImageBrush ImageSource="../assets/icons/func.jpg"/>
@@ -32,61 +32,62 @@
 
                 </Border>
                 <TextBlock Grid.Column="1"
-                       FontFamily="{StaticResource Suwannaphum}"
-                       Text="សូមធ្វើការជ្រើសរើសចម្លើយខាងក្រោមឲ្យបានត្រឹមត្រូវ"
+                       FontFamily="{StaticResource Moul}"
+                       Text="សូមធ្វើការឆ្លើយសំណួរខាងក្រោមឲ្យបានត្រឹមត្រូវ"
                        Margin="0 40 0 0"
-                       Foreground="White"
+                       Foreground="Black"
                        FontSize="30"/>
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="80 30 80 0">
-            <TextBlock Grid.Column="1"
+        <StackPanel Grid.Row="1" Margin="80 50 80 0">
+            <TextBlock x:Name="questionnam"
                        FontFamily="{StaticResource Suwannaphum}"
-                       Text="តើអ្នកចូលចិត្តស្រលាញ់គេម្នាក់ឯងទេ?"
-                       Margin="0 30 0 0"
-                       Foreground="{StaticResource Primary-color}"
-                       FontSize="30"/>
-            <Button x:Name="buttonanswer1"
-                    Margin="0 30 0 0"
-                    HorizontalContentAlignment="Left"
-                    Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
-                ចូលចិត្តខ្លាំងណាស់
-            </Button>
+                       Foreground="Black"
+                       FontSize="30">
+            </TextBlock>
             <Button x:Name="buttonanswer2"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
-                ចូលចិត្តបន្តិចបន្តួច
+                    Height="40" Style="{StaticResource newbuttonstyle}">
             </Button>
             <Button x:Name="buttonanswer3"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
-                មិនសូវចូលចិត្តទេ
+                    Height="40" Style="{StaticResource newbuttonstyle}">
+                
             </Button>
             <Button x:Name="buttonanswer4"
                     Margin="0 30 0 0"
+                    Click="buttonanswer2_Click"
                     HorizontalContentAlignment="Left"
                     Padding="20 0 0 0"
-                    Height="40" Style="{StaticResource buttonstyle}">
-                មិនចូលចិត្តសូម្បីបន្តិច
+                    Height="40" Style="{StaticResource newbuttonstyle}">
+                
             </Button>
+            <StackPanel Orientation="Horizontal"
+                        x:Name="stackanswer"
+                        Height="40"
+                        Margin="0 30 0 0">
+                <TextBlock x:Name="wrongrightname"
+                           FontSize="25"
+                           Margin="0 0 20 0"
+                           FontFamily="{StaticResource Suwannaphum}"/>
+                <Border Height="40" Width="40"
+                        x:Name="borderwrongright">
+                </Border>
+
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Border Height="50" Width="50">
-                <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/back.png" Stretch="UniformToFill"/>
-                </Border.Background>
-            </Border>
-            <Border Height="60" Width="60">
-                <Border.Background>
-                    <ImageBrush ImageSource="../assets/images/next.png" Stretch="UniformToFill"/>
-                </Border.Background>
-            </Border>
+            <TextBlock FontSize="30"
+                       FontFamily="{StaticResource Suwannaphum}"
+                       x:Name="CountdownTextBlock">
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>

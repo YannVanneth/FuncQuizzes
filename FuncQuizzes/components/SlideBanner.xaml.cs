@@ -20,10 +20,9 @@ namespace FuncQuizzes.components
     /// </summary>
     public partial class SlideBanner : UserControl
     {
-        public SlideBanner(string text, ImageSource image)
+        public SlideBanner(ImageSource image)
         {
             InitializeComponent();
-            this.Text = text;
             this.ContentImage = image;
         }
         public string Text

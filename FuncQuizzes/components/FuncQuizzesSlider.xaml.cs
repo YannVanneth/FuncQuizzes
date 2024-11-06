@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using System.Windows.Threading;
+using Path = System.IO.Path;
 
 namespace FuncQuizzes.components
 {
@@ -60,23 +66,62 @@ namespace FuncQuizzes.components
 
         private void GetStartbtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.MainWindow is MainWindow mainWindow)
-            {
-                mainWindow.Main.Content = new pages.chooselevel();
-            }
+            App.SwitchPage(new pages.selectcategory());
         }
 
         private void InitializeSliderContent()
         {
+            var slide01 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerA.png")));
+            slide01.MouseDown += SliderClick;
+            slide01.Cursor = Cursors.Hand;
+
+            var slide02 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerB.png")));
+            slide02.MouseDown += SliderClick;
+            slide02.Cursor = Cursors.Hand;
+
+            var slide03 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerC.png")));
+            slide03.MouseDown += SliderClick;
+            slide03.Cursor = Cursors.Hand;
+
+            var slide04 = new SlideBanner(new BitmapImage(new Uri($"{System.IO.Directory.GetCurrentDirectory()}\\DATA\\Assets\\BannerD.png")));
+            slide04.MouseDown += SliderClick;
+            slide04.Cursor = Cursors.Hand;
+
             content = new List<SlideBanner>
             {
-                new SlideBanner("C++ Programming", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandC++.png"))),
-                new SlideBanner("Let's go! With Python", new BitmapImage(new Uri("pack://application:,,,/assets/images/Python.png"))),
-                new SlideBanner("Hello, JavaScript", new BitmapImage(new Uri("pack://application:,,,/assets/images/JavaScript.png"))),
-                new SlideBanner("Hah C Again!", new BitmapImage(new Uri("pack://application:,,,/assets/images/CandC++.png")))
+                slide01, slide02, slide03, slide04
             };
 
             UpdateSlide();
+        }
+
+        public void SliderClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var path = (SlideBanner)sender;
+
+            if (path != null)
+            {
+                if (Path.GetFileNameWithoutExtension(path.ContentImage.ToString()) == "BannerC")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 1;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.ContentImage.ToString()) == "BannerA")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 2;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.ContentImage.ToString()) == "BannerB")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 3;
+                    new pages.selectcategory().loadpage();
+                }
+                else if (Path.GetFileNameWithoutExtension(path.ContentImage.ToString()) == "BannerD")
+                {
+                    ((App)Application.Current).GlobalCategoryId = 4;
+                    new pages.selectcategory().loadpage();
+                }
+            }
         }
 
         private void SetupTimer()
@@ -98,7 +143,7 @@ namespace FuncQuizzes.components
         private void UpdateSlide()
         {
 
-            this.BannerContent.Children.Clear();
+            this.BannerContent.Child = null;
 
 
             if (currentSlideIndex == 0)
@@ -133,10 +178,36 @@ namespace FuncQuizzes.components
             }
 
             var banner = content[currentSlideIndex];
-            
+            banner.HorizontalAlignment = HorizontalAlignment.Stretch;
+            banner.VerticalAlignment = VerticalAlignment.Stretch;
+            banner.Height = 218;
+            banner.Width = 768;
+
             if (banner != null)
             {
-                this.BannerContent.Children.Add(banner);
+                this.BannerContent.Child = banner;
+            }
+        }
+
+        private void Dot_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Border dot = sender as Border;
+            if (dot != null)
+            {
+                // Apply active animation
+                ColorAnimation activeAnimation = (ColorAnimation)FindResource("DotActiveAnimation");
+                dot.Background.BeginAnimation(SolidColorBrush.ColorProperty, activeAnimation);
+            }
+        }
+
+        private void Dot_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Border dot = sender as Border;
+            if (dot != null)
+            {
+                // Apply inactive animation
+                ColorAnimation inactiveAnimation = (ColorAnimation)FindResource("DotInactiveAnimation");
+                dot.Background.BeginAnimation(SolidColorBrush.ColorProperty, inactiveAnimation);
             }
         }
     }

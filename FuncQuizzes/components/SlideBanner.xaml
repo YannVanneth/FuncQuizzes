@@ -5,32 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FuncQuizzes.components"
              mc:Ignorable="d" Name="this"
-             d:DesignHeight="218" d:DesignWidth="762"
-             Height="218" Width="662">
-    <Border CornerRadius="20">
-        <Grid>
-            <!-- Define the Column -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0">
-                <Border.Background>
-                    <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}"/>
-                </Border.Background>
-            </Border>
-
-            <StackPanel Grid.Column="1"
-                      VerticalAlignment="Center"
-                      Margin="0 0 10 0">
-                <TextBlock Text="{Binding Text, ElementName=this}"
-                           FontSize="38"
-                           TextWrapping="Wrap"
-                           FontWeight="Bold"
-                           Foreground="{DynamicResource Primary-color}"/>
-            </StackPanel>
-
-        </Grid>
+             d:DesignHeight="218" d:DesignWidth="762">
+    
+    <Border CornerRadius="20"
+            BorderThickness="0.4"
+            BorderBrush="Black"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+        <Border.Background>
+            <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}" Stretch="UniformToFill"/>
+        </Border.Background>
     </Border>
 </UserControl>

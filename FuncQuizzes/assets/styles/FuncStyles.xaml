@@ -125,7 +125,8 @@
 
         <Setter Property="Width" Value="400"/>
         <Setter Property="Padding" Value="5 10"/>
-        <Setter Property="Background" Value="#D9D9D9"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0.6"/>
 
         <Setter Property="Template">
             <Setter.Value>

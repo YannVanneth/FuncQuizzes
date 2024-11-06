@@ -212,15 +212,7 @@ namespace FuncQuizzes.pages
 
         private void button_back(object sender, RoutedEventArgs e)
         {
-
-            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-
-            if (mainWindow != null)
-            {
-                mainWindow.Main.Content = new pages.HomeScreen();
-            }
-
-
+            App.SwitchPage(new pages.HomeScreen());
         }
     }
 }

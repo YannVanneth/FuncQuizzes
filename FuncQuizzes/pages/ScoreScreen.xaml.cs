@@ -20,9 +20,29 @@ namespace FuncQuizzes.pages
     /// </summary>
     public partial class ScoreScreen : Page
     {
+        int finalScore;
         public ScoreScreen()
         {
             InitializeComponent();
+            finalScore = ((App)Application.Current).totalScore;
+            textblockScore.Text = $"{finalScore.ToString()}";
+            ((App)Application.Current).totalScore = 0;
+        }
+
+        private void buttonagain_Click(object sender, RoutedEventArgs e)
+        {
+            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Main.Content = new pages.selectcategory();
+            //}
+
+            App.SwitchPage(new pages.selectcategory());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.SwitchPage(new pages.HomeScreen());
         }
     }
 }
