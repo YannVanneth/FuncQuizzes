@@ -30,16 +30,25 @@ namespace FuncQuizzes.pages
         private int currentQuestionIndex = 0;
         private List<Question> questions = new List<Question>();
         private DispatcherTimer delayTimer;
+        private DispatcherTimer quizTimer;
         private int countdownTime = 2; // Countdown time in seconds
+        private int quizCountdownTime = 10 * 60;
         public questionpage()
         {
             InitializeComponent();
             LoadQuestion();
 
-            // Initialize the timer for the delay
             delayTimer = new DispatcherTimer();
-            delayTimer.Interval = TimeSpan.FromSeconds(2); // Set the delay duration (e.g., 2 seconds)
+            delayTimer.Interval = TimeSpan.FromSeconds(2);
             delayTimer.Tick += DelayTimer_Tick;
+
+            quizTimer = new DispatcherTimer();
+            quizTimer.Interval = TimeSpan.FromSeconds(1); // Tick every second
+            quizTimer.Tick += QuizTimer_Tick;
+            quizTimer.Start();
+
+            // Display the initial time remaining
+            UpdateQuizTimeDisplay();
         }
         private void buttonanswer2_Click(object sender, RoutedEventArgs e)
         {
@@ -64,32 +73,42 @@ namespace FuncQuizzes.pages
                 delayTimer.Start();
             }
         }
-        //private void switchpage() 
-        //{
-        //    MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-        //    if (mainWindow != null)
-        //    {
-        //        mainWindow.Main.Content = new pages.selectcategory();
-        //    }
-        //}
-        // This event triggers after the delay to show the next question
+        private void QuizTimer_Tick(object sender, EventArgs e)
+        {
+            quizCountdownTime--;
+
+            // Update the displayed quiz time
+            UpdateQuizTimeDisplay();
+
+            if (quizCountdownTime <= 0)
+            {
+                // Stop the quiz timer when time runs out
+                quizTimer.Stop();
+
+                // Show a message or navigate to the score screen
+                MessageBox.Show("Time's up! The quiz has ended.");
+                App.SwitchPage(new pages.ScoreScreen());
+            }
+        }
+        private void UpdateQuizTimeDisplay()
+        {
+            int minutes = quizCountdownTime / 60;
+            int seconds = quizCountdownTime % 60;
+            QuizTimeTextBlock.Text = $"Time left: {minutes:D2}:{seconds:D2}";
+        }
         private void DelayTimer_Tick(object sender, EventArgs e)
         {
             countdownTime--;
 
-            // Update the countdown display on the form
             CountdownTextBlock.Text = $"Next question in: {countdownTime} seconds";
 
             if (countdownTime <= 0)
             {
-                // Stop the timer when countdown finishes
                 delayTimer.Stop();
 
-                // Clear the feedback and countdown text
                 wrongrightname.Text = string.Empty;
                 CountdownTextBlock.Text = string.Empty;
 
-                // Move to the next question
                 currentQuestionIndex++;
                 DisplayCurrentQuestion();
             }
@@ -112,9 +131,7 @@ namespace FuncQuizzes.pages
             SQLiteDataReader reader = command.ExecuteReader();
             if (!reader.HasRows)
             {
-                // No questions found, show message and switch page
                 MessageBox.Show("No questions found for this category and level.");
-                //switchpage();
                 App.SwitchPage(new pages.selectcategory());
                 return;
             }
@@ -130,11 +147,6 @@ namespace FuncQuizzes.pages
                     DisplayCurrentQuestion();
                 }
             }
-
-            //if (questions.Count > 0)
-            //{
-            //    DisplayCurrentQuestion();
-            //}
             con.Close();
         }
         private void DisplayCurrentQuestion()
@@ -147,12 +159,6 @@ namespace FuncQuizzes.pages
             }
             else
             {
-                //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-                //if (mainWindow != null)
-                //{
-                //    mainWindow.Main.Content = new pages.ScoreScreen();
-                //}
-
                 App.SwitchPage(new pages.ScoreScreen());
             }
         }
@@ -164,24 +170,20 @@ namespace FuncQuizzes.pages
                 {
                     connection.Open();
 
-                    // SQL query to select answers for the specified question
                     string answerQuery = "SELECT answer, is_correct FROM tbl_answer WHERE id_question = @QuestionId LIMIT 3";
                     SQLiteCommand answerCommand = new SQLiteCommand(answerQuery, connection);
 
-                    // Set the parameter
                     answerCommand.Parameters.AddWithValue("@QuestionId", questionId);
 
-                    // Attempt to execute the reader
                     using (SQLiteDataReader reader = answerCommand.ExecuteReader())
                     {
                         int answerIndex = 0;
                         while (reader.Read())
                         {
-                            // Process the answers here
                             string answerText = reader["answer"].ToString();
+
                             bool isCorrect = Convert.ToBoolean(reader["is_correct"]);
 
-                            // Assign answer and correctness to UI buttons
                             switch (answerIndex)
                             {
                                 case 0:

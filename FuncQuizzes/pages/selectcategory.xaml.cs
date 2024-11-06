@@ -49,7 +49,7 @@ namespace FuncQuizzes.pages
                     ((App)Application.Current).GlobalCategoryId = 3;
                     loadpage();
                 }
-                else if (button.Content.ToString() == "ចំណេះដឺងទូទៅ")
+                else if (button.Content.ToString() == "ចំណេះដឹងទូទៅ")
                 {
                     ((App)Application.Current).GlobalCategoryId = 4;
                     loadpage();
