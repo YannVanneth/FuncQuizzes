@@ -31,8 +31,13 @@ namespace FuncQuizzes.pages
         private List<Question> questions = new List<Question>();
         private DispatcherTimer delayTimer;
         private DispatcherTimer quizTimer;
-        private int countdownTime = 2; // Countdown time in seconds
+        private int countdownTime = 0; // Countdown time in seconds
         private int quizCountdownTime = 10 * 60;
+        private int totalTime = 10 * 60;
+        private int incorrectAnswerCount = 0;
+        private int correctAnswerCount = 0;
+        private int categoryid = 0;
+        private int levelid = 0;
         public questionpage()
         {
             InitializeComponent();
@@ -55,21 +60,23 @@ namespace FuncQuizzes.pages
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
+                clickedButton.IsEnabled = false;
                 bool isCorrect = Convert.ToInt32(clickedButton.Tag) == 1;
                 if (isCorrect)
                 {
                     wrongrightname.Text = "ត្រឹមត្រូវ";
+                    correctAnswerCount++;
                     wrongrightname.Foreground = new SolidColorBrush(Colors.Green);
                     ((App)Application.Current).totalScore += 10;
                 }
                 else
                 {
                     wrongrightname.Text = "មិនត្រឹមត្រូវ";
+                    incorrectAnswerCount++;
                     wrongrightname.Foreground = new SolidColorBrush(Colors.Red);
                 }
                 // Set the countdown time and start the delay timer
-                countdownTime = 2; // Set your delay duration in seconds
-                CountdownTextBlock.Text = $"Next question in: {countdownTime} seconds";
+                countdownTime = 1; // Set your delay duration in seconds
                 delayTimer.Start();
             }
         }
@@ -84,7 +91,7 @@ namespace FuncQuizzes.pages
             {
                 // Stop the quiz timer when time runs out
                 quizTimer.Stop();
-
+                int totalTimespend = totalTime - quizCountdownTime;
                 // Show a message or navigate to the score screen
                 MessageBox.Show("Time's up! The quiz has ended.");
                 App.SwitchPage(new pages.ScoreScreen());
@@ -94,7 +101,7 @@ namespace FuncQuizzes.pages
         {
             int minutes = quizCountdownTime / 60;
             int seconds = quizCountdownTime % 60;
-            QuizTimeTextBlock.Text = $"Time left: {minutes:D2}:{seconds:D2}";
+            QuizTimeTextBlock.Text = $"{minutes:D2}:{seconds:D2}";
         }
         private void DelayTimer_Tick(object sender, EventArgs e)
         {
@@ -116,8 +123,8 @@ namespace FuncQuizzes.pages
         private void LoadQuestion()
         {
 
-            int categoryid = ((App)Application.Current).GlobalCategoryId;
-            int levelid = ((App)Application.Current).GlobalLevelId;
+            categoryid = ((App)Application.Current).GlobalCategoryId;
+            levelid = ((App)Application.Current).GlobalLevelId;
 
 
             SQLiteConnection con = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite");
@@ -159,6 +166,7 @@ namespace FuncQuizzes.pages
             }
             else
             {
+                saveresulthistory();
                 App.SwitchPage(new pages.ScoreScreen());
             }
         }
@@ -169,8 +177,7 @@ namespace FuncQuizzes.pages
                 using (SQLiteConnection connection = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
                 {
                     connection.Open();
-
-                    string answerQuery = "SELECT answer, is_correct FROM tbl_answer WHERE id_question = @QuestionId LIMIT 3";
+                    string answerQuery = "SELECT answer, is_correct FROM tbl_answer WHERE id_question = @QuestionId ORDER BY RANDOM() LIMIT 3";
                     SQLiteCommand answerCommand = new SQLiteCommand(answerQuery, connection);
 
                     answerCommand.Parameters.AddWithValue("@QuestionId", questionId);
@@ -199,6 +206,9 @@ namespace FuncQuizzes.pages
                                     buttonanswer4.Tag = isCorrect;
                                     break;
                             }
+                            buttonanswer2.IsEnabled = true;
+                            buttonanswer3.IsEnabled = true;
+                            buttonanswer4.IsEnabled = true;
 
                             answerIndex++;
                         }
@@ -211,7 +221,77 @@ namespace FuncQuizzes.pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("Please Select one answer only! ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void saveresulthistory()
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection("Data Source=DATA\\FuncQuizzes.sqlite"))
+                {
+                    connection.Open();
+
+                    // Fixing typo in the CREATE TABLE statement and ensuring correct column names
+                    string table_history = @"CREATE TABLE IF NOT EXISTS History(
+                                        his_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                        category TEXT,
+                                        level TEXT,
+                                        answer_incorect INTEGER,
+                                        answer_corect INTEGER,
+                                        total_score INTEGER,
+                                        dateandtime TEXT,
+                                        spend_time INTEGER)";
+                    using (SQLiteCommand command = new SQLiteCommand(table_history, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    // Retrieve category and level names using `categoryid` and `levelid`
+                    string categoryName = string.Empty;
+                    string levelName = string.Empty;
+
+                    // Query to get category name from `tbl_categories` based on `categoryid`
+                    string fetchCategoryQuery = "SELECT category FROM tbl_category WHERE id_category = @CategoryId";
+                    using (SQLiteCommand fetchCategoryCommand = new SQLiteCommand(fetchCategoryQuery, connection))
+                    {
+                        fetchCategoryCommand.Parameters.AddWithValue("@CategoryId", categoryid);
+                        categoryName = fetchCategoryCommand.ExecuteScalar()?.ToString() ?? "Unknown Category";
+                    }
+
+                    // Query to get level name from `tbl_levels` based on `levelid`
+                    string fetchLevelQuery = "SELECT level FROM tbl_level WHERE id_level = @LevelId";
+                    using (SQLiteCommand fetchLevelCommand = new SQLiteCommand(fetchLevelQuery, connection))
+                    {
+                        fetchLevelCommand.Parameters.AddWithValue("@LevelId", levelid);
+                        levelName = fetchLevelCommand.ExecuteScalar()?.ToString() ?? "Unknown Level";
+                    }
+                    //caculate time 
+                    int durationInSeconds = totalTime - quizCountdownTime;
+                    string durationFormatted = $"{durationInSeconds / 60:D2}:{durationInSeconds % 60:D2}";
+                    // Insert query
+                    string insertQuery = @"INSERT INTO History (category, level, answer_incorect, answer_corect, total_score, dateandtime, spend_time) 
+                                   VALUES (@Category, @Level, @IncorrectAnswers, @CorrectAnswers, @Score, @DateAndTime, @Duration)";
+
+                    using (SQLiteCommand commandInsert = new SQLiteCommand(insertQuery, connection))
+                    {
+                        commandInsert.Parameters.AddWithValue("@Category", categoryName);
+                        commandInsert.Parameters.AddWithValue("@Level", levelName);
+                        commandInsert.Parameters.AddWithValue("@IncorrectAnswers", incorrectAnswerCount);
+                        commandInsert.Parameters.AddWithValue("@CorrectAnswers", correctAnswerCount);
+                        commandInsert.Parameters.AddWithValue("@Score", ((App)Application.Current).totalScore);
+                        commandInsert.Parameters.AddWithValue("@DateAndTime", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        commandInsert.Parameters.AddWithValue("@Duration", durationFormatted);
+
+                        commandInsert.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ", "អប់អរសាទរ", MessageBoxButton.OK, MessageBoxImage.Information);
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
