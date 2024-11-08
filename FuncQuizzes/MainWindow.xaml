@@ -8,7 +8,6 @@
         Title="FuncQuizzes" Height="700" Width="1200" MinWidth="1200" MinHeight="600">
     <Grid>
         <Frame x:Name="Main"
-               NavigationUIVisibility="Hidden"
-               />
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
