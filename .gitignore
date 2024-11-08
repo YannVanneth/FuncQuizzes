@@ -1,0 +1,8 @@
+# Ignore Visual Studio specific files and folders
+.vs/*
+FuncQuizzes/.vs/*
+
+# Ignore build output directories except for specific paths
+FuncQuizzes/obj/*
+FuncQuizzes/bin/*
+

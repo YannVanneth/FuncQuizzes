@@ -1,0 +1,272 @@
+﻿<Page x:Class="FuncQuizzes.pages.HomeScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:FuncQuizzes="clr-namespace:FuncQuizzes.components"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FuncQuizzes.pages"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="HomeScreen">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0">
+            
+            <Border.Effect>
+                <BlurEffect Radius="8"
+                            x:Name="GridBorder1Radius"/>
+            </Border.Effect>
+
+            <Grid Grid.Row="0"
+                  Margin="0 5 0 0"
+                  Panel.ZIndex="0"
+                  x:Name="Grid1Content"
+                  IsHitTestVisible="False">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="148"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border x:Name="Logo"
+                        Grid.Column="0"
+                        Height="60"
+                        HorizontalAlignment="Left"
+                        Margin="10 0">
+                    <Image Source="../assets/images/FuncQuizzes.png"/>
+                </Border>
+
+                <Border Grid.Column="1">
+                    <StackPanel VerticalAlignment="Center" x:Name="SearchStack" Orientation="Horizontal">
+                        <TextBox Style="{StaticResource SearchBox}"
+                                 x:Name="SearchBox"
+                                 Text="ស្វែងរក"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 FontFamily="{DynamicResource Kantumruy_Pro}"
+                                 FontWeight="Bold"
+                                 GotFocus="TextBox_GotFocus"
+                                 LostFocus="SearchBox_LostFocus"
+                                 TextChanged="SearchBox_TextChanged"/>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            Margin="0 0 30 0">
+
+                    <Border Style="{DynamicResource AvatarPicture}"
+                            Margin="10 0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/icons/Person_noInfo.png"
+                                        x:Name="UserImageProfile"
+                                        Stretch="UniformToFill"/>
+                        </Border.Background>
+                    </Border>
+                    <TextBlock Text="ឈ្មោះអ្នកប្រើប្រាស់"
+                               x:Name="UserNameProfile"
+                               VerticalAlignment="Center"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="{DynamicResource Kantumruy_Pro}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1">
+            <Border.Effect>
+                <BlurEffect Radius="8"
+                            x:Name="GridBorder0Radius"/>
+            </Border.Effect>
+
+        <Grid Panel.ZIndex="0"
+              IsHitTestVisible="False"
+              x:Name="GridContent0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                    Padding="0 20 10 20">
+                    <StackPanel>
+                        <Border BorderBrush="DarkOrange"
+                            BorderThickness="5 0 0 0"
+                            Padding="5 0"
+                            x:Name="HomePageBorder">
+                            <Button Style="{DynamicResource MenuButton}"
+                                HorizontalContentAlignment="Left"
+                                x:Name="HomePage"
+                                Click="HomePage_Click">
+                                <FuncQuizzes:MenuItems Icon="{DynamicResource Home}"
+                                                   Text="ទំព័រដើម"
+                                                   IconWidth="25"
+                                                   Color="DarkOrange"
+                                                   Margin="10 0"
+                                                   x:Name="HomeIcon"/>
+                            </Button>
+                        </Border>
+
+                        <StackPanel Margin="5"/>
+                        <!--Spacer-->
+
+
+                        <Border Padding="5 0"
+                            BorderThickness="5 0 0 0"
+                            x:Name="HistoryPageBorder">
+                            <Button Style="{DynamicResource MenuButton}"
+                                HorizontalContentAlignment="Left"
+                                x:Name="HistoryPage"
+                                Click="HistoryPage_Click">
+                                <FuncQuizzes:MenuItems Icon="{DynamicResource History}"
+                                    Text="ប្រវត្តិ"
+                                    IconWidth="25"
+                                    Color="Black"
+                                    Margin="10 0"
+                                    x:Name="HistoryIcon"/>
+                            </Button>
+                        </Border>
+
+                        <StackPanel Margin="5"/>
+                        <!--Spacer-->
+
+
+                        <Border Padding="5 0"
+                            BorderThickness="5 0 0 0"
+                            x:Name="AboutUsPageBorder">
+                            <Button Style="{DynamicResource MenuButton}"
+                                HorizontalContentAlignment="Left"
+                                x:Name="AboutUsPage"
+                                Click="AboutUsPage_Click">
+                                <FuncQuizzes:MenuItems Icon="{DynamicResource Team}"
+                                   Text="អំពីពួកយើង"
+                                   IconWidth="23"
+                                   Color="Black"
+                                   Margin="10 0"
+                                   x:Name="AboutIcon"/>
+                            </Button>
+
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <ScrollViewer Grid.Column="1"
+                          VerticalScrollBarVisibility="Hidden"
+                          HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0"
+                        Margin="0 0 20 0">
+                            <FuncQuizzes:FuncQuizzesSlider/>
+                        </Border>
+
+                        <Border Grid.Row="1">
+                            <StackPanel>
+                                <FuncQuizzes:ContentList/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <Canvas Panel.ZIndex="1"
+                VerticalAlignment="Center"
+                x:Name="EnterInfomation">
+            
+            <Border Canvas.Top="200"
+                    Background="Black"
+                    Height="auto"
+                    Width="3000"
+                    Padding="20 40"
+                    CornerRadius="8">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal"
+                            Margin="140 0">
+
+                    <StackPanel VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    Margin="-15 0 0 0">
+                            <StackPanel Margin="0 0 10 0">
+                                <TextBlock Text="សូមស្វាគមន៍មកកាន់"
+                                   Foreground="White"
+                                   FontSize="26"
+                                   FontFamily="{DynamicResource Kantumruy_Pro}"
+                                   Margin="0 8 10 0"
+                                   VerticalAlignment="Center"/>
+                                <TextBlock Text="FuncQuizzes"
+                                           Foreground="{DynamicResource Primary-color}"
+                                           FontSize="28"
+                                           FontWeight="Heavy"
+                                           HorizontalAlignment="Right"/>
+                                           
+                            </StackPanel>
+                            
+                            <Border Width="80"
+                                    Height="80"
+                                    Background="White"
+                                    BorderBrush="White"
+                                    BorderThickness="0.5"
+                                    CornerRadius="12">
+                                <Image Source="../assets/images/FuncQuizzes.png"/>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="15 0 0 0">
+                        <StackPanel VerticalAlignment="Center"
+                                    Margin="80 0 0 0">
+                            
+                            <TextBox Text="ឈ្មោះ"
+                                     x:Name="NameBox"
+                                     Foreground="Black"
+                                     Background="White"
+                                     Style="{DynamicResource SearchBox}"
+                                     Margin="0 0 0 15"
+                                     FontFamily="{DynamicResource Kantumruy_Pro}"
+                                     GotFocus="TextBox_GotFocus"
+                                     LostFocus="SearchBox_LostFocus"/>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="ជ្រើសរើសរូបថត"
+                                        Background="White"
+                                        Padding="20 0"
+                                        FontFamily="{DynamicResource Kantumruy_Pro}"
+                                        Style="{DynamicResource MenuButton}"
+                                        Margin="0 0 10 0"
+                                        x:Name="SelectPicture"
+                                        Click="SelectPicture_Click"/>
+                                <Button Content="ចុះឈ្មោះចូល"
+                                        Background="White"
+                                        Padding="20 0"
+                                        FontFamily="{DynamicResource Kantumruy_Pro}"
+                                        Style="{DynamicResource MenuButton}"
+                                        x:Name="Registerbtn"
+                                        Click="Registerbtn_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border Width="100" Height="100"
+                                Background="White"
+                                CornerRadius="50"
+                                Margin="30 0 0 0"
+                                x:Name="UserPicture"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Canvas>
+    </Grid>
+</Page>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="components\ContentList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="components\FuncQuizzesSlider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="components\MenuItems.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="components\SlideBanner.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="components\SliderCardDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="components\TopicCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\AboutUs.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\HomeScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\ScoreScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\SplashScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="assets\icons\Icons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="assets\styles\buttonquestionstyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="assets\styles\ColorsAndFonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="assets\styles\FuncStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\ContentList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\FuncQuizzesSlider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\MenuItems.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\SlideBanner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\SliderCardDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\TopicCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\AboutUs.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\chooselevel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\HomeScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\questionpage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\ScoreScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\selectcategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

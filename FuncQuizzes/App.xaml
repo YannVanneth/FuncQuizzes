@@ -1,0 +1,15 @@
+﻿<Application x:Class="FuncQuizzes.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FuncQuizzes">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/assets/icons/Icons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/assets/styles/ColorsAndFonts.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/assets/styles/FuncStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/assets/styles/buttonquestionstyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

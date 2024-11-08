@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="FuncQuizzes.components.SlideBanner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuncQuizzes.components"
+             mc:Ignorable="d" Name="this"
+             d:DesignHeight="218" d:DesignWidth="762">
+    
+    <Border CornerRadius="20"
+            BorderThickness="0.4"
+            BorderBrush="Black"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+        <Border.Background>
+            <ImageBrush ImageSource="{Binding ContentImage, ElementName=this}" Stretch="UniformToFill"/>
+        </Border.Background>
+    </Border>
+</UserControl>
