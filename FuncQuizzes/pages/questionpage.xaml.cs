@@ -25,6 +25,13 @@ namespace FuncQuizzes.pages
         public int Id { get; set; }
         public string Text { get; set; }
     }
+    public class AnswerDetail
+    {
+        public int QuestionId {  get; set; }
+        public string QuestionText {  get; set; }
+        public string ChosenAnswerText {  get; set; }
+        public bool IsCorrect {  get; set; }
+    }
     public partial class questionpage : Page
     {
         private int currentQuestionIndex = 0;
@@ -38,14 +45,13 @@ namespace FuncQuizzes.pages
         private int correctAnswerCount = 0;
         private int categoryid = 0;
         private int levelid = 0;
+        private int totalQuestionCount = 10;
+        private List<AnswerDetail> answerDetails = new List<AnswerDetail>();
+
         public questionpage()
         {
             InitializeComponent();
             LoadQuestion();
-
-            delayTimer = new DispatcherTimer();
-            delayTimer.Interval = TimeSpan.FromSeconds(2);
-            delayTimer.Tick += DelayTimer_Tick;
 
             quizTimer = new DispatcherTimer();
             quizTimer.Interval = TimeSpan.FromSeconds(1); // Tick every second
@@ -60,24 +66,31 @@ namespace FuncQuizzes.pages
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
-                clickedButton.IsEnabled = false;
+                //clickedButton.IsEnabled = false;
                 bool isCorrect = Convert.ToInt32(clickedButton.Tag) == 1;
+                var existingAnswer = answerDetails.FirstOrDefault(a => a.QuestionId == questions[currentQuestionIndex].Id);
+                if (existingAnswer == null) 
+                {
+                    answerDetails.Add(new AnswerDetail
+                    {
+                        QuestionId = questions[currentQuestionIndex].Id,
+                        QuestionText = questions[currentQuestionIndex].Text,
+                        ChosenAnswerText = clickedButton.Content.ToString(),
+                        IsCorrect = isCorrect
+                    });
+                }
+
                 if (isCorrect)
                 {
-                    wrongrightname.Text = "ត្រឹមត្រូវ";
                     correctAnswerCount++;
-                    wrongrightname.Foreground = new SolidColorBrush(Colors.Green);
                     ((App)Application.Current).totalScore += 10;
                 }
                 else
                 {
-                    wrongrightname.Text = "មិនត្រឹមត្រូវ";
                     incorrectAnswerCount++;
-                    wrongrightname.Foreground = new SolidColorBrush(Colors.Red);
                 }
-                // Set the countdown time and start the delay timer
-                countdownTime = 1; 
-                delayTimer.Start();
+                currentQuestionIndex++;
+                DisplayCurrentQuestion();
             }
         }
         private void QuizTimer_Tick(object sender, EventArgs e)
@@ -103,23 +116,6 @@ namespace FuncQuizzes.pages
             int seconds = quizCountdownTime % 60;
             QuizTimeTextBlock.Text = $"{minutes:D2}:{seconds:D2}";
         }
-        private void DelayTimer_Tick(object sender, EventArgs e)
-        {
-            countdownTime--;
-
-            CountdownTextBlock.Text = $"Next question in: {countdownTime} seconds";
-
-            if (countdownTime <= 0)
-            {
-                delayTimer.Stop();
-
-                wrongrightname.Text = string.Empty;
-                CountdownTextBlock.Text = string.Empty;
-
-                currentQuestionIndex++;
-                DisplayCurrentQuestion();
-            }
-        }
         private void LoadQuestion()
         {
 
@@ -134,7 +130,6 @@ namespace FuncQuizzes.pages
 
             command.Parameters.AddWithValue("@CategoryId", categoryid);
             command.Parameters.AddWithValue("@LevelId", levelid);
-
             SQLiteDataReader reader = command.ExecuteReader();
             if (!reader.HasRows)
             {
@@ -142,6 +137,7 @@ namespace FuncQuizzes.pages
                 App.SwitchPage(new pages.selectcategory());
                 return;
             }
+            
             while (reader.Read())
             {
                 questions.Add(new Question
@@ -156,16 +152,20 @@ namespace FuncQuizzes.pages
             }
             con.Close();
         }
+        private void DisplayQuestionCount()
+        {
+            CountdownTextBlock.Text = $"Question {currentQuestionIndex + 1} of {totalQuestionCount}";
+        }
         private void DisplayCurrentQuestion()
         {
+            
             if (currentQuestionIndex < questions.Count)
             {
+                
                 var currentQuestion = questions[currentQuestionIndex];
                 questionnam.Text = currentQuestion.Text;
                 LoadAnswers(currentQuestion.Id);
-                buttonanswer2.IsEnabled = true;
-                buttonanswer3.IsEnabled = true;
-                buttonanswer4.IsEnabled = true;
+                DisplayQuestionCount();
             }
             else
             {
@@ -209,7 +209,6 @@ namespace FuncQuizzes.pages
                                     buttonanswer4.Tag = isCorrect;
                                     break;
                             }
-
                             answerIndex++;
                         }
                     }
@@ -244,6 +243,19 @@ namespace FuncQuizzes.pages
                     {
                         command.ExecuteNonQuery();
                     }
+
+                    string table_historyDetails = @"CREATE TABLE IF NOT EXISTS History_Details(
+                                                detail_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                                his_id INTEGER,
+                                                question_text TEXT,
+                                                chosen_answer TEXT,
+                                                is_correct TEXT,
+                                                FOREIGN KEY(his_id) REFERENCES History(his_id))";
+                    using(SQLiteCommand command = new SQLiteCommand(table_historyDetails, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
                     string categoryName = string.Empty;
                     string levelName = string.Empty;
                     string fetchCategoryQuery = "SELECT category FROM tbl_category WHERE id_category = @CategoryId";
@@ -274,6 +286,24 @@ namespace FuncQuizzes.pages
                         commandInsert.Parameters.AddWithValue("@Duration", durationFormatted);
 
                         commandInsert.ExecuteNonQuery();
+                    }
+
+                    long lastHistoryId = connection.LastInsertRowId;
+                    string detailinsert = @"INSERT INTO History_Details (his_id,question_text,chosen_answer, is_correct)
+                                        VALUES (@HistoryId, @QuestionText,@ChosenAnswer,@IsCorrect)";
+
+                    foreach(var answerdetail in answerDetails)
+                    {
+                        using(SQLiteCommand commandInsert = new SQLiteCommand(detailinsert, connection))
+                        {
+                            commandInsert.Parameters.AddWithValue("@HistoryId",lastHistoryId);
+                            commandInsert.Parameters.AddWithValue("@QuestionText", answerdetail.QuestionText);
+                            commandInsert.Parameters.AddWithValue("@ChosenAnswer", answerdetail.ChosenAnswerText);
+                            string IsCorrectText = answerdetail.IsCorrect ? "ត្រឹមត្រូវ" : "មិនត្រឹមត្រូវ";
+                            commandInsert.Parameters.AddWithValue("@IsCorrect",IsCorrectText);
+
+                            commandInsert.ExecuteNonQuery();
+                        }
                     }
                     MessageBox.Show("អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ", "អប់អរសាទរ", MessageBoxButton.OK, MessageBoxImage.Information);
                     connection.Close();
