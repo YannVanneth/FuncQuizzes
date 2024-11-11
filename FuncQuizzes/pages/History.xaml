@@ -1,0 +1,62 @@
+﻿<Page x:Class="FuncQuizzes.pages.History"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FuncQuizzes.pages"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="History"
+      Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FF9D3C">
+            <Grid Margin="20">
+                <Image Margin="40 0 0 0"
+                    Width="50" Height="50" 
+                    HorizontalAlignment="Left"
+                    Source="../assets/images/back_circle.png"/>
+
+                <TextBlock Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="{StaticResource Kantumruy_Pro}"
+                       FontSize="40" FontWeight="Bold">
+                ប្រវត្តិ
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Background="#D9D9D9">
+            <ScrollViewer>
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#FF9D3C">
+            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+
+                <Image Width="50" Height="50" 
+                       Margin="0 0 20 0"
+                    Source="../assets/images/back.png"/>
+                <Image Width="50" Height="50" 
+                       Margin="20 0 0 0"
+                       Source="../assets/images/next-button.png"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
