@@ -39,46 +39,53 @@
                     FontSize="30"/>
             </Grid>
         </StackPanel>
-        <Border Grid.Row="1" Margin="80 30 80 10"
-                CornerRadius="10 10 10 10"
+        <ScrollViewer Grid.Row="1" Margin="80 30 80 10"
+                      VerticalScrollBarVisibility="Hidden"
                 BorderBrush="{StaticResource Secondary-color}"
                 BorderThickness="4">
-            <StackPanel Orientation="Horizontal" >
-                <Border Height="300" Width="300"
-                        HorizontalAlignment="Left"
-                        Margin="50 10 0 0">
-                    <Border.Background>
-                        <ImageBrush ImageSource="../assets/images/customer-service.png" Stretch="Uniform"/>
-                    </Border.Background>
-                </Border>
-                <Border Height="300" Width="300" 
-                        CornerRadius="150" 
-                        BorderBrush="black"
-                        BorderThickness="2"
-                        Margin="350 0 0 0"
-                        Background="{StaticResource Secondary-color}">
-                    <StackPanel>
-                        <TextBlock Text="ពិន្ទុសរុប" TextAlignment="Center"
-                                   FontFamily="{StaticResource Moul}"
-                                   Foreground="black"
-                                   FontSize="35" Margin="40">
-                            
-                        </TextBlock>
-                        <Border BorderBrush="black"
-                                BorderThickness="1">
-                            
-                        </Border>
-                        <TextBlock Text="100" TextAlignment="Center"
-                                   x:Name="textblockScore"
-                                   FontFamily="{StaticResource Suwannaphum}"
-                                   Foreground="black"
-                                   FontSize="70">
+            <Grid VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border Height="100" Width="100"
+                            HorizontalAlignment="Left"
+                            Margin="0 10 0 0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../assets/images/customer-service.png" Stretch="Uniform"/>
+                        </Border.Background>
+                    </Border>
+                    <Border Height="100" Width="100" 
+                            CornerRadius="50" 
+                            HorizontalAlignment="Right"
+                            BorderBrush="black"
+                            BorderThickness="2"
+                            Background="{StaticResource Secondary-color}">
+                        <StackPanel>
+                            <TextBlock Text="ពិន្ទុសរុប" TextAlignment="Center"
+                                       FontFamily="{StaticResource Moul}"
+                                       Foreground="black"
+                                       FontSize="15" Margin="12">
 
-                        </TextBlock>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-        </Border>
+                            </TextBlock>
+                            <TextBlock Text="100" TextAlignment="Center"
+                                       x:Name="textblockScore"
+                                       FontFamily="{StaticResource Suwannaphum}"
+                                       Foreground="black"
+                                       FontSize="20">
+
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <StackPanel Grid.Row="1"
+                            x:Name="stack_answer">
+                    
+                </StackPanel>
+            </Grid>
+            
+        </ScrollViewer>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Margin="0 0 80 0">

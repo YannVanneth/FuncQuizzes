@@ -13,6 +13,9 @@
     <Compile Update="components\FuncQuizzesSlider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="components\HistoryDetailsxaml.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="components\MenuItems.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="components\FuncQuizzesSlider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="components\HistoryDetailsxaml.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="components\MenuItems.xaml">

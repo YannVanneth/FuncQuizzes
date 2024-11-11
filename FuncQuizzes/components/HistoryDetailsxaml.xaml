@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="FuncQuizzes.components.HistoryDetailsxaml"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FuncQuizzes.components"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="150" d:DesignWidth="800">
+    <Border BorderBrush="Green"
+            BorderThickness="1"
+            Margin="10"
+            CornerRadius="5 5 5 5">
+        <StackPanel>
+            <TextBlock x:Name="questionname"
+                       Margin="20"
+                       FontFamily="{StaticResource Suwannaphum}"
+                       FontSize="18">
+    
+                hello
+            </TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           x:Name="textanswer"
+                           Margin="20"
+                           FontSize="15"
+                           FontFamily="{StaticResource Suwannaphum}">
+                    hello
+                </TextBlock>
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Right"
+                           Margin="20"
+                           FontSize="15"
+                           x:Name="iscorrectanswer"
+                           FontFamily="{StaticResource Suwannaphum}">
+                    hello
+                </TextBlock>
+            </Grid>
+
+        </StackPanel>
+    </Border>
+    
+</UserControl>
