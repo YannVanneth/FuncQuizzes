@@ -76,7 +76,7 @@ namespace FuncQuizzes.pages
                     wrongrightname.Foreground = new SolidColorBrush(Colors.Red);
                 }
                 // Set the countdown time and start the delay timer
-                countdownTime = 1; // Set your delay duration in seconds
+                countdownTime = 1; 
                 delayTimer.Start();
             }
         }
@@ -163,6 +163,9 @@ namespace FuncQuizzes.pages
                 var currentQuestion = questions[currentQuestionIndex];
                 questionnam.Text = currentQuestion.Text;
                 LoadAnswers(currentQuestion.Id);
+                buttonanswer2.IsEnabled = true;
+                buttonanswer3.IsEnabled = true;
+                buttonanswer4.IsEnabled = true;
             }
             else
             {
@@ -206,9 +209,6 @@ namespace FuncQuizzes.pages
                                     buttonanswer4.Tag = isCorrect;
                                     break;
                             }
-                            buttonanswer2.IsEnabled = true;
-                            buttonanswer3.IsEnabled = true;
-                            buttonanswer4.IsEnabled = true;
 
                             answerIndex++;
                         }
@@ -231,8 +231,6 @@ namespace FuncQuizzes.pages
                 using (SQLiteConnection connection = new SQLiteConnection("Data Source=DATA\\FuncQuizzes.sqlite"))
                 {
                     connection.Open();
-
-                    // Fixing typo in the CREATE TABLE statement and ensuring correct column names
                     string table_history = @"CREATE TABLE IF NOT EXISTS History(
                                         his_id INTEGER PRIMARY KEY AUTOINCREMENT,
                                         category TEXT,
@@ -246,29 +244,22 @@ namespace FuncQuizzes.pages
                     {
                         command.ExecuteNonQuery();
                     }
-                    // Retrieve category and level names using `categoryid` and `levelid`
                     string categoryName = string.Empty;
                     string levelName = string.Empty;
-
-                    // Query to get category name from `tbl_categories` based on `categoryid`
                     string fetchCategoryQuery = "SELECT category FROM tbl_category WHERE id_category = @CategoryId";
                     using (SQLiteCommand fetchCategoryCommand = new SQLiteCommand(fetchCategoryQuery, connection))
                     {
                         fetchCategoryCommand.Parameters.AddWithValue("@CategoryId", categoryid);
                         categoryName = fetchCategoryCommand.ExecuteScalar()?.ToString() ?? "Unknown Category";
                     }
-
-                    // Query to get level name from `tbl_levels` based on `levelid`
                     string fetchLevelQuery = "SELECT level FROM tbl_level WHERE id_level = @LevelId";
                     using (SQLiteCommand fetchLevelCommand = new SQLiteCommand(fetchLevelQuery, connection))
                     {
                         fetchLevelCommand.Parameters.AddWithValue("@LevelId", levelid);
                         levelName = fetchLevelCommand.ExecuteScalar()?.ToString() ?? "Unknown Level";
-                    }
-                    //caculate time 
-                    int durationInSeconds = totalTime - quizCountdownTime;
+                    }                    int durationInSeconds = totalTime - quizCountdownTime;
                     string durationFormatted = $"{durationInSeconds / 60:D2}:{durationInSeconds % 60:D2}";
-                    // Insert query
+                    
                     string insertQuery = @"INSERT INTO History (category, level, answer_incorect, answer_corect, total_score, dateandtime, spend_time) 
                                    VALUES (@Category, @Level, @IncorrectAnswers, @CorrectAnswers, @Score, @DateAndTime, @Duration)";
 
@@ -284,7 +275,6 @@ namespace FuncQuizzes.pages
 
                         commandInsert.ExecuteNonQuery();
                     }
-
                     MessageBox.Show("អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ", "អប់អរសាទរ", MessageBoxButton.OK, MessageBoxImage.Information);
                     connection.Close();
                 }
@@ -294,6 +284,5 @@ namespace FuncQuizzes.pages
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
-
     }
 }
