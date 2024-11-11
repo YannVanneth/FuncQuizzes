@@ -93,15 +93,13 @@
                            FontSize="25"
                            Margin="0 0 20 0"
                            FontFamily="{StaticResource Suwannaphum}"/>
-                <Border Height="40" Width="40"
-                        x:Name="borderwrongright">
-                </Border>
 
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <TextBlock FontSize="30"
+            <TextBlock FontSize="20"
+                       Foreground="Black"
                        FontFamily="{StaticResource Suwannaphum}"
                        x:Name="CountdownTextBlock">
             </TextBlock>

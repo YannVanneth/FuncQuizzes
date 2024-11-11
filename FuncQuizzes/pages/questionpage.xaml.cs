@@ -38,6 +38,7 @@ namespace FuncQuizzes.pages
         private int correctAnswerCount = 0;
         private int categoryid = 0;
         private int levelid = 0;
+        private int totalQuestionCount = 10;
         public questionpage()
         {
             InitializeComponent();
@@ -76,7 +77,7 @@ namespace FuncQuizzes.pages
                     wrongrightname.Foreground = new SolidColorBrush(Colors.Red);
                 }
                 // Set the countdown time and start the delay timer
-                countdownTime = 1; 
+                countdownTime = 0; 
                 delayTimer.Start();
             }
         }
@@ -134,7 +135,6 @@ namespace FuncQuizzes.pages
 
             command.Parameters.AddWithValue("@CategoryId", categoryid);
             command.Parameters.AddWithValue("@LevelId", levelid);
-
             SQLiteDataReader reader = command.ExecuteReader();
             if (!reader.HasRows)
             {
@@ -142,6 +142,7 @@ namespace FuncQuizzes.pages
                 App.SwitchPage(new pages.selectcategory());
                 return;
             }
+            
             while (reader.Read())
             {
                 questions.Add(new Question
@@ -156,16 +157,23 @@ namespace FuncQuizzes.pages
             }
             con.Close();
         }
+        private void DisplayQuestionCount()
+        {
+            CountdownTextBlock.Text = $"Question {currentQuestionIndex + 1} of {totalQuestionCount}";
+        }
         private void DisplayCurrentQuestion()
         {
+            
             if (currentQuestionIndex < questions.Count)
             {
+                
                 var currentQuestion = questions[currentQuestionIndex];
                 questionnam.Text = currentQuestion.Text;
                 LoadAnswers(currentQuestion.Id);
                 buttonanswer2.IsEnabled = true;
                 buttonanswer3.IsEnabled = true;
                 buttonanswer4.IsEnabled = true;
+                DisplayQuestionCount();
             }
             else
             {
@@ -209,7 +217,6 @@ namespace FuncQuizzes.pages
                                     buttonanswer4.Tag = isCorrect;
                                     break;
                             }
-
                             answerIndex++;
                         }
                     }
