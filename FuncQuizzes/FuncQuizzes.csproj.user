@@ -67,6 +67,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="components\history_card.xaml">
+		<SubType>Designer</SubType>
+	</Page>
     <Page Update="components\HistoryDetailsxaml.xaml">
       <SubType>Designer</SubType>
     </Page>
