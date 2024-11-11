@@ -203,8 +203,8 @@
                                             <TransformGroup>
                                                 <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.35" ScaleY="1.35"/>
                                             </TransformGroup>
-                                        </RadialGradientBrush.RelativeTransform>
-                                        <GradientStop Color="#FFECECEC" Offset="0"/>
+                                            </RadialGradientBrush.RelativeTransform> 
+                                            <GradientStop Color="#FFECECEC" Offset="0"/>
                                         <GradientStop Color="#FFECECEC" Offset="1"/>
                                     </RadialGradientBrush>
                                 </Setter.Value>

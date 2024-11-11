@@ -39,9 +39,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="assets\icons\Icons.xaml">
+    <Resource Update="assets\icons\Icons.xaml">
       <SubType>Designer</SubType>
-    </Page>
+    </Resource>
     <Page Update="assets\styles\buttonquestionstyle.xaml">
       <SubType>Designer</SubType>
     </Page>
