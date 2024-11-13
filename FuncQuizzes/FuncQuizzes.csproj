@@ -21,6 +21,7 @@
     <None Remove="assets\images\back.png" />
     <None Remove="assets\images\back_arrow.png" />
     <None Remove="assets\images\back_circle.png" />
+    <None Remove="assets\images\boroeurn.jpeg" />
     <None Remove="assets\images\boroeurn.jpg" />
     <None Remove="assets\images\brain.png" />
     <None Remove="assets\images\C++.png" />
@@ -108,6 +109,9 @@
     </Resource>
     <Resource Include="assets\images\back_circle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\boroeurn.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\images\boroeurn.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

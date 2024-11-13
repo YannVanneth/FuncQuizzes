@@ -86,7 +86,7 @@ namespace FuncQuizzes.pages
 
         private void Avar_2_School_Click(object sender, RoutedEventArgs e)
         {
-            string url = "http://training.antkh.com/students/?s=5216";
+            string url = "http://training.antkh.com/students/?s=5215";
 
             try
             {
