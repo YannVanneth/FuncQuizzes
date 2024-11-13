@@ -16,6 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection.PortableExecutable;
 using System.Data;
+using System.Media;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace FuncQuizzes.pages
@@ -47,19 +49,25 @@ namespace FuncQuizzes.pages
         private int levelid = 0;
         private int totalQuestionCount = 10;
         private List<AnswerDetail> answerDetails = new List<AnswerDetail>();
-
+        private MediaPlayer mediaPlayer;
         public questionpage()
         {
             InitializeComponent();
             LoadQuestion();
-
+            mediaPlayer = new MediaPlayer();
             quizTimer = new DispatcherTimer();
             quizTimer.Interval = TimeSpan.FromSeconds(1); // Tick every second
             quizTimer.Tick += QuizTimer_Tick;
             quizTimer.Start();
-
+            displaysound();
+            mediaPlayer.Play();
             // Display the initial time remaining
             UpdateQuizTimeDisplay();
+        }
+        private void displaysound()
+        { 
+            mediaPlayer.Volume = 0.3;
+            mediaPlayer.Open(new Uri(Directory.GetCurrentDirectory() + "\\DATA\\sound\\quiztime.mp3", UriKind.Absolute));
         }
         private void buttonanswer2_Click(object sender, RoutedEventArgs e)
         {
@@ -169,6 +177,7 @@ namespace FuncQuizzes.pages
             }
             else
             {
+                mediaPlayer.Stop();
                 saveresulthistory();
                 App.SwitchPage(new pages.ScoreScreen());
             }
@@ -305,7 +314,7 @@ namespace FuncQuizzes.pages
                             commandInsert.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("អ្នកបានឆ្លើយសំណួរដោយជោគជ័យ", "អប់អរសាទរ", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
                     connection.Close();
                 }
             }

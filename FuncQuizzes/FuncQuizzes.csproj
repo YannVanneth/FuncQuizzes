@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\audio\congratulation.mp3" />
     <None Remove="assets\fonts\KantumruyPro-Regular.ttf" />
     <None Remove="assets\fonts\Moul-Regular.ttf" />
     <None Remove="assets\fonts\Suwannaphum-Regular.ttf" />
@@ -77,6 +78,9 @@
 
   <ItemGroup>
     <Resource Include="assets\icons\folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\audio\congratulation.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\icons\func.jpg">

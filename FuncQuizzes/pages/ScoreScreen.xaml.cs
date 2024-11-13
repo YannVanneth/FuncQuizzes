@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,24 +23,36 @@ namespace FuncQuizzes.pages
     /// </summary>
     public partial class ScoreScreen : Page
     {
-        int finalScore;
+        private int finalScore;
+        private MediaPlayer mediaPlayer;
         public ScoreScreen()
         {
             InitializeComponent();
+            mediaPlayer = new MediaPlayer();
             finalScore = ((App)Application.Current).totalScore;
             textblockScore.Text = $"{finalScore.ToString()}";
             ((App)Application.Current).totalScore = 0;
+            displaysound();
             loadHistory();
         }
 
+        private void displaysound()
+        {
+            if (finalScore < 50 && finalScore >= 0)
+            {
+                mediaPlayer.Volume = 0.3;
+                mediaPlayer.Open(new Uri(Directory.GetCurrentDirectory() + "\\DATA\\sound\\sad.mp3", UriKind.Absolute));
+                mediaPlayer.Play();
+            }
+            else if (finalScore >= 50 && finalScore <= 100)
+            {
+                mediaPlayer.Volume = 0.3;
+                mediaPlayer.Open(new Uri(Directory.GetCurrentDirectory() + "\\DATA\\sound\\congratulation.mp3", UriKind.Absolute));
+                mediaPlayer.Play();
+            }
+        }
         private void buttonagain_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            //if (mainWindow != null)
-            //{
-            //    mainWindow.Main.Content = new pages.selectcategory();
-            //}
-
             App.SwitchPage(new pages.selectcategory());
         }
 
