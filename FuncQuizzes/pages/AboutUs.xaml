@@ -29,7 +29,6 @@ BorderBrush="Transparent" Click="button_back"
 Style="{StaticResource ImageLink}">
 
                         <StackPanel>
-
                             <Image Source="../assets/images/back_arrow.png" Height="50" Width="50"/>
                         </StackPanel>
                     </Button>

@@ -11,41 +11,70 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="130"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="#FF9D3C">
-            <Grid Margin="20">
+        <Grid Grid.Row="0" Background="Black" x:Name="Grid01">
+            <Grid>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel-->
                 <Image Margin="40 0 0 0"
                     Width="50" Height="50" 
                     HorizontalAlignment="Left"
-                    Source="../assets/images/back_circle.png"/>
+                    Source="../assets/images/back_arrow.png"
+                    MouseDown="Image_MouseDown"
+                    Cursor="Hand"/>
+                <!--<Image />-->
 
                 <TextBlock Grid.Column="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="{StaticResource Kantumruy_Pro}"
-                       FontSize="40" FontWeight="Bold">
+                       FontSize="30" FontWeight="Bold"
+                       Foreground="{DynamicResource Primary-color}">
                 ប្រវត្តិ
                 </TextBlock>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="1"
-              Background="#D9D9D9">
-            <ScrollViewer>
+              Background="#D9D9D9"
+              x:Name="Grid02" Visibility="Hidden">
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Hidden">
                 <Grid Margin="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" x:Name="StackColOne" HorizontalAlignment="Right" Margin="10 0"/>
+                    <StackPanel Grid.Column="1" x:Name="StackColTwo" HorizontalAlignment="Left" Margin="10 0"/>
                 </Grid>
             </ScrollViewer>
         </Grid>
 
-        <Grid Grid.Row="2" Background="#FF9D3C">
+        <StackPanel Grid.Row="1" VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    x:Name="NoDataPage">
+            <Border Height="120">
+                <Image Source="../assets/icons/folder.png"/>
+            </Border>
+            <TextBlock Text="មិនមានទិន្នន័យ"
+                       FontSize="38"
+                       VerticalAlignment="Center"
+                       Margin="10 10 10 0"
+                       Foreground="Black"
+                       FontFamily="{DynamicResource Moul}"/>
+        </StackPanel>
+
+        <!--<Grid Grid.Row="2" Background="#FF9D3C">
             <StackPanel Orientation="Horizontal"
                 HorizontalAlignment="Center">
 
@@ -57,6 +86,6 @@
                        Margin="20 0 0 0"
                        Source="../assets/images/next-button.png"/>
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Page>
