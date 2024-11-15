@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Navigation;
 using System.Windows.Threading;
 
 namespace FuncQuizzes.pages
@@ -22,7 +21,6 @@ namespace FuncQuizzes.pages
         {
             InitializeComponent();
             Loading(ref _text);
-
         }
 
         private void Loading(ref TextBlock textblock)
@@ -65,8 +63,6 @@ namespace FuncQuizzes.pages
             };
 
             this.bottomStack.Children.Add(myprogress);
-
-            // Add animation to the ProgressBar's value
             AnimateProgressBar(myprogress);
         }
 
@@ -80,7 +76,6 @@ namespace FuncQuizzes.pages
                 AutoReverse = false,
             };
 
-            //RepeatBehavior = RepeatBehavior.Forever
             Storyboard.SetTarget(animation, progressBar);
             Storyboard.SetTargetProperty(animation, new PropertyPath(ProgressBar.ValueProperty));
 
@@ -94,7 +89,7 @@ namespace FuncQuizzes.pages
             _progress = 0;
 
             _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromMilliseconds(40);
+            _timer.Interval = TimeSpan.FromMilliseconds(35);
             _timer.Tick += _timer_Tick;
             _timer.Start();
         }
