@@ -80,9 +80,6 @@
     <Resource Include="assets\icons\folder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\icons\func.jpg">
-      <CopyToOutputDirectory>gi</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="assets\icons\Icons.xaml">
       <CopyToOutputDirectory>gi</CopyToOutputDirectory>
     </Resource>

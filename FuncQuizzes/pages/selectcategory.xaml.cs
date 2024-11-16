@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,36 +25,93 @@ namespace FuncQuizzes.pages
         public selectcategory()
         {
             InitializeComponent();
+            LoadCategories();
+        }
+        private void LoadCategories()
+        {
+            StackPanel[] stacks = new StackPanel[] { stack01, stack02, stack03, stack04 };
+            string connectionString = "Data Source=DATA\\FuncQuizzes.sqlite";
+            string query = "SELECT category FROM tbl_category ORDER BY category ASC";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int index = 0;
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string categoryName = reader.GetString(0);
+
+                                Button categoryButton = new Button
+                                {
+                                    Content = categoryName,
+                                    Height = 40,
+                                    VerticalContentAlignment = VerticalAlignment.Center,
+                                    HorizontalContentAlignment = HorizontalAlignment.Center,
+                                    Style = (Style)Application.Current.Resources["newbuttonstyle"],
+                                    Margin = new Thickness(15),
+                                };
+                                categoryButton.Click += buttoncategory_Click;
+                                int col = index % 4;
+                                switch (col)
+                                {
+                                    case 0:
+                                        stack01.Children.Add(categoryButton);
+                                        break;
+                                    case 1:
+                                        stack02.Children.Add(categoryButton);
+                                        break;
+                                    case 2:
+                                        stack03.Children.Add(categoryButton);
+                                        break;
+                                    case 3:
+                                        stack04.Children.Add(categoryButton);
+                                        break;
+                                }
+                                index++;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while loading categories: " + ex.Message);
+                    }
+                }
+            }
         }
         public void loadpage()
         {
             App.SwitchPage(new pages.chooselevel());
         }
-        private void buttoncategorycpp_Click(object sender, RoutedEventArgs e)
+        private void buttoncategory_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-
-            if (button != null)
+            using (SQLiteConnection con = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
             {
-                if (button.Content.ToString() == "CPP")
+                con.Open();
+                string questionQuery = "SELECT id_category FROM tbl_category WHERE category = @category";
+                Button button = sender as Button;
+
+                if (button != null)
                 {
-                    ((App)Application.Current).GlobalCategoryId = 1;
-                    loadpage();
-                }
-                else if (button.Content.ToString() == "C#")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 2;
-                    loadpage();
-                }
-                else if (button.Content.ToString() == "FLUTTER")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 3;
-                    loadpage();
-                }
-                else if (button.Content.ToString() == "ចំណេះដឹងទូទៅ")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 4;
-                    loadpage();
+                    string categoryName = button.Content.ToString();
+                    SQLiteCommand cmd = new SQLiteCommand(questionQuery, con);
+                    cmd.Parameters.AddWithValue("@category", categoryName);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && int.TryParse(result.ToString(), out int categoryId))
+                    {
+                        ((App)Application.Current).GlobalCategoryId = categoryId;
+                        loadpage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Category not found.");
+                    }
                 }
             }
         }
