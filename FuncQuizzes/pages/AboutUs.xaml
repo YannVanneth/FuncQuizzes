@@ -29,7 +29,6 @@ BorderBrush="Transparent" Click="button_back"
 Style="{StaticResource ImageLink}">
 
                         <StackPanel>
-
                             <Image Source="../assets/images/back_arrow.png" Height="50" Width="50"/>
                         </StackPanel>
                     </Button>
@@ -48,7 +47,7 @@ Style="{StaticResource ImageLink}">
       
        FontFamily="{StaticResource Moul}"
        FontSize="30"/>
-                <TextBlock Text="FunQuizze គឺជាកម្មវិធីប្រឡងសំណួរដ៏គួរឱ្យរីករាយ និងមានលក្ខណៈអប់រំ ដែលត្រូវបានរចនាឡើងដើម្បីប្រឡង និងកម្សាន្តអ្នកប្រើប្រាស់គ្រប់វ័យ។ ក្រុមការងាររបស់យើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្តសំណួរ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលដៅធ្វើឱ្យការរៀនសូត្រកាន់តែគួរឱ្យរីករាយ និងងាយស្រួលទទួលបាន។ ជាមួយនឹងតេស្តសំណួរជាច្រើនប្រភេទដែលគ្របដណ្តប់លើប្រធានបទផ្សេងៗ  ផ្តល់នូវបទពិសោធន៍ដែលត្រូវនឹងបុគ្គល និងទាក់ទាញ។ ការប្តេជ្ញាចិត្តរបស់យើងចំពោះភាពត្រឹមត្រូវ និងការពេញចិត្តរបស់អ្នកប្រើប្រាស់ ជំរុញឱ្យយើងបន្តកែលម្អ និងពង្រីកមុខងារកម្មវិធីរបស់យើង។ ចូលរួមជាមួយសហគមន៍ FunQuizze និងស្វែងរកភាពរំភើបនៃការរៀនសូត្រតាមរយៈការធ្វើតេស្តសំណួរ!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}"/>
+                <TextBlock Text="FuncQuizze គឺជាកម្មវិធីធ្វើតេស្ដសមត្ថភាពបែបកំសាន្ត និងផ្ដល់ចំណេះដឹងថ្មីៗទាក់ទងនឹងបច្ចេកវិទ្យា។​  ក្រុមរបស់ពួកយើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្ដតាមដានសមត្ថភាពជាប្រចាំ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលបំណងឱ្យការរៀនសូត្រកាន់តែមានរីករាយ និងងាយស្រួល។ ជាមួយនឹងសំណួរតេស្តជាច្រើនប្រភេទ រួមមានភាសាកុំព្យូទ័រ និងចំណេះដឹងទូទៅទាក់ទងនឹងបច្ចេកវិទ្យា ដែលអាចផ្ដល់នូវបទពិសោធន៍ថ្មីៗ។​ ពួកយើងមានឆន្ទៈក្នុងការអភិវឌ្ឍកម្មវិធី ពង្រីកមុខងារកម្មវិធីឱ្យកាន់តែប្រសើរ និងតម្រូវតាមការពេញចិត្តរបស់អ្នកប្រើប្រាស់។ សូមចូលរួមដោយក្ដីរីករាយជាមួយ FuncQuizze​ !!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}"/>
             </StackPanel>
         </Border>
         <Grid  Grid.Row="2" VerticalAlignment="Center">
@@ -185,7 +184,7 @@ Style="{StaticResource ImageLink}">
                     <StackPanel Margin="20 0 20 0">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
-                                <ImageBrush ImageSource="../assets/images/boroeurn.jpg"/>
+                                <ImageBrush ImageSource="../assets/images/boroeurn.jpeg"/>
                             </Border.Background>
                         </Border>
                         <TextBlock Text="ប្រាជ្ញ បូរឿន" TextAlignment="Center" FontSize="20" FontFamily="{StaticResource Suwannaphum}"/>

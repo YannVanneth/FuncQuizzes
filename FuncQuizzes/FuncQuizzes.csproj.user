@@ -13,6 +13,9 @@
     <Compile Update="components\FuncQuizzesSlider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="components\history_card.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="components\HistoryDetailsxaml.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -29,6 +32,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="pages\AboutUs.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\History.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="pages\HomeScreen.xaml.cs">
@@ -60,6 +66,9 @@
     <Page Update="components\FuncQuizzesSlider.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="components\history_card.xaml">
+		<SubType>Designer</SubType>
+	</Page>
     <Page Update="components\HistoryDetailsxaml.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -82,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\chooselevel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\History.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\HomeScreen.xaml">

@@ -27,6 +27,7 @@ namespace FuncQuizzes.pages
         private void HistoryPage_Click(object sender, RoutedEventArgs e)
         {
             this.ActiveBorder(this.HistoryPageBorder.BorderBrush);
+            App.SwitchPage(new pages.History());
         }
 
         private void AboutUsPage_Click(object sender, RoutedEventArgs e)
