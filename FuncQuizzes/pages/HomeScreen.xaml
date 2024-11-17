@@ -39,7 +39,7 @@
                         Height="60"
                         HorizontalAlignment="Left"
                         Margin="10 0">
-                    <Image Source="../assets/images/FuncQuizzes.png"/>
+                    <Image Source="../assets/images/FuncQuizzes_secondary.png"/>
                 </Border>
 
                 <Border Grid.Column="1">
@@ -221,7 +221,7 @@
                                     BorderBrush="White"
                                     BorderThickness="0.5"
                                     CornerRadius="12">
-                                <Image Source="../assets/images/FuncQuizzes.png"/>
+                                <Image Source="../assets/images/FuncQuizzes_secondary.png"/>
                             </Border>
                         </StackPanel>
                     </StackPanel>

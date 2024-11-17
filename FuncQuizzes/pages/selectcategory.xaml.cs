@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FuncQuizzes.components;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -99,6 +100,7 @@ namespace FuncQuizzes.pages
                 if (button != null)
                 {
                     string categoryName = button.Content.ToString();
+
                     SQLiteCommand cmd = new SQLiteCommand(questionQuery, con);
                     cmd.Parameters.AddWithValue("@category", categoryName);
 
