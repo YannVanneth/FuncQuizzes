@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Path = System.IO.Path;
+using System.Data.SQLite;
 
 namespace FuncQuizzes.components
 {
@@ -79,29 +80,30 @@ namespace FuncQuizzes.components
         }
         public void TopicCardEvent(object sender, MouseButtonEventArgs e)
         {
-            TopicCard path = (TopicCard)sender;
-
-            if (path != null)
+            using (SQLiteConnection con = new SQLiteConnection("Data source=DATA\\FuncQuizzes.sqlite"))
             {
-                if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "CPP")
+                con.Open();
+                string questionQuery = "SELECT id_category FROM tbl_category WHERE category_image = @category_image";
+                TopicCard path = sender as TopicCard;
+
+                if (path != null)
                 {
-                    ((App)Application.Current).GlobalCategoryId = 1;
-                    new pages.selectcategory().loadpage();
-                }
-                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "C%23")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 2;
-                    new pages.selectcategory().loadpage();
-                }
-                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()).ToUpper() == "FLUTTER")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 3;
-                    new pages.selectcategory().loadpage();
-                }
-                else if (Path.GetFileNameWithoutExtension(path.Image.ToString()) == "ចំណេះដឺងទូទៅ")
-                {
-                    ((App)Application.Current).GlobalCategoryId = 4;
-                    new pages.selectcategory().loadpage();
+                    string categoryName = Path.GetFileNameWithoutExtension(path.Image.ToString());
+
+                    SQLiteCommand cmd = new SQLiteCommand(questionQuery, con);
+                    cmd.Parameters.AddWithValue("@category_image", categoryName);
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int categoryId))
+                    {
+                        ((App)Application.Current).GlobalCategoryId = categoryId;
+                        new pages.selectcategory().loadpage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Category not found.");
+                    }
                 }
             }
         }

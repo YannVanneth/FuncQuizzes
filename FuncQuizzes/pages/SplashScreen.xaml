@@ -22,7 +22,7 @@
                         Height="109"
                         HorizontalAlignment="Left">
                     <Border.Background>
-                        <ImageBrush ImageSource="../assets/images/FuncQuizzes.png"/>
+                        <ImageBrush ImageSource="../assets/images/FuncQuizzes_primary.png"/>
                     </Border.Background>
                 </Border>
                 <TextBlock Text="ក្រុមទី២"

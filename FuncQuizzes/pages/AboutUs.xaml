@@ -35,7 +35,7 @@ Style="{StaticResource ImageLink}">
                 </Grid>
                 <Grid Grid.Column="1">
                     <Border>
-                        <Image  Source="../assets/images/FuncQuizzes.png" Height="100"/>
+                        <Image  Source="../assets/images/FuncQuizzes_primary.png" Height="100"/>
                     </Border>
                 </Grid>
             </Grid>

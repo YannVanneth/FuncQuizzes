@@ -64,7 +64,7 @@ namespace FuncQuizzes.features
 
             catch (SQLiteException err)
             {
-                MessageBox.Show($"Connection Error: {err.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show($"Connection Error: {err.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             finally

@@ -17,12 +17,6 @@
 
         <Grid Grid.Row="0" Background="Black" x:Name="Grid01">
             <Grid>
-                <!--<Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                
-                <StackPanel-->
                 <Image Margin="40 0 0 0"
                     Width="50" Height="50" 
                     HorizontalAlignment="Left"

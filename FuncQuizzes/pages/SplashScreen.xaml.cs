@@ -89,7 +89,7 @@ namespace FuncQuizzes.pages
             _progress = 0;
 
             _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromMilliseconds(35);
+            _timer.Interval = TimeSpan.FromMilliseconds(33.1);
             _timer.Tick += _timer_Tick;
             _timer.Start();
         }
