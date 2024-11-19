@@ -4,10 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FuncQuizzes.pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Loaded="Page_Loaded"
       Title="AboutUs" Background="#C5E1F6"
       d:DesignHeight="700" d:DesignWidth="1200">
-
+    <Page.Resources>
+        <Storyboard x:Key="RiseAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                     From="1000" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -42,19 +53,29 @@ Style="{StaticResource ImageLink}">
         </Border>
         <Border Grid.Row="1">
             <StackPanel VerticalAlignment="Center">
-                <Label Content="អំពីពួកយើង" 
+                <Label Content="អំពីពួកយើង" x:Name="AboutUsA"
        HorizontalAlignment="Center"
       
        FontFamily="{StaticResource Moul}"
-       FontSize="30"/>
-                <TextBlock Text="FuncQuizze គឺជាកម្មវិធីធ្វើតេស្ដសមត្ថភាពបែបកំសាន្ត និងផ្ដល់ចំណេះដឹងថ្មីៗទាក់ទងនឹងបច្ចេកវិទ្យា។​  ក្រុមរបស់ពួកយើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្ដតាមដានសមត្ថភាពជាប្រចាំ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលបំណងឱ្យការរៀនសូត្រកាន់តែមានរីករាយ និងងាយស្រួល។ ជាមួយនឹងសំណួរតេស្តជាច្រើនប្រភេទ រួមមានភាសាកុំព្យូទ័រ និងចំណេះដឹងទូទៅទាក់ទងនឹងបច្ចេកវិទ្យា ដែលអាចផ្ដល់នូវបទពិសោធន៍ថ្មីៗ។​ ពួកយើងមានឆន្ទៈក្នុងការអភិវឌ្ឍកម្មវិធី ពង្រីកមុខងារកម្មវិធីឱ្យកាន់តែប្រសើរ និងតម្រូវតាមការពេញចិត្តរបស់អ្នកប្រើប្រាស់។ សូមចូលរួមដោយក្ដីរីករាយជាមួយ FuncQuizze​ !!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}"/>
+       FontSize="30">
+                    <Label.RenderTransform>
+                        <TranslateTransform Y="1000"/>
+                    </Label.RenderTransform>
+                </Label>
+                <TextBlock x:Name="ParagraphText" Text="FuncQuizze គឺជាកម្មវិធីធ្វើតេស្ដសមត្ថភាពបែបកំសាន្ត និងផ្ដល់ចំណេះដឹងថ្មីៗទាក់ទងនឹងបច្ចេកវិទ្យា។​  ក្រុមរបស់ពួកយើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្ដតាមដានសមត្ថភាពជាប្រចាំ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលបំណងឱ្យការរៀនសូត្រកាន់តែមានរីករាយ និងងាយស្រួល។ ជាមួយនឹងសំណួរតេស្តជាច្រើនប្រភេទ រួមមានភាសាកុំព្យូទ័រ និងចំណេះដឹងទូទៅទាក់ទងនឹងបច្ចេកវិទ្យា ដែលអាចផ្ដល់នូវបទពិសោធន៍ថ្មីៗ។​ ពួកយើងមានឆន្ទៈក្នុងការអភិវឌ្ឍកម្មវិធី ពង្រីកមុខងារកម្មវិធីឱ្យកាន់តែប្រសើរ និងតម្រូវតាមការពេញចិត្តរបស់អ្នកប្រើប្រាស់។ សូមចូលរួមដោយក្ដីរីករាយជាមួយ FuncQuizze​ !!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform Y="1000"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
             </StackPanel>
         </Border>
-        <Grid  Grid.Row="2" VerticalAlignment="Center">
-
+        <Grid x:Name="MemberGrid"  Grid.Row="2" VerticalAlignment="Center">
+            <Grid.RenderTransform>
+                <TranslateTransform Y="1000"/>
+            </Grid.RenderTransform>
             <Border HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="20 0 20 0">
+                    <StackPanel Margin="20 0 20 0" x:Name="Person01">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
                                 <ImageBrush ImageSource="../assets/images/david.jpg"/>
@@ -96,7 +117,7 @@ Style="{StaticResource ImageLink}">
 
                     <!--Avatar two-->
 
-                    <StackPanel Margin="20 0 20 0">
+                    <StackPanel Margin="20 0 20 0" x:Name="Person02">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
                                 <ImageBrush ImageSource="../assets/images/vanneth.jpg"/>
@@ -139,7 +160,7 @@ Style="{StaticResource ImageLink}">
 
                     <!--Avatar three-->
 
-                    <StackPanel Margin="20 0 20 0">
+                    <StackPanel Margin="20 0 20 0" x:Name="Person03">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
                                 <ImageBrush ImageSource="../assets/images/marina.jpg"/>
@@ -181,7 +202,7 @@ Style="{StaticResource ImageLink}">
 
                     <!--Avatar Four-->
 
-                    <StackPanel Margin="20 0 20 0">
+                    <StackPanel Margin="20 0 20 0" x:Name="Person04">
                         <Border Height="150" Width="150" CornerRadius="75">
                             <Border.Background>
                                 <ImageBrush ImageSource="../assets/images/boroeurn.jpeg"/>

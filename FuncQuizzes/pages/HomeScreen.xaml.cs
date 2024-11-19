@@ -1,11 +1,13 @@
 ﻿using FuncQuizzes.components;
 using Microsoft.Win32;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace FuncQuizzes.pages
@@ -290,6 +292,21 @@ namespace FuncQuizzes.pages
                 this.UserNameProfile.Text = this.UserName; this.UserImageProfile.ImageSource = new BitmapImage(new Uri($"{Directory.GetCurrentDirectory()}\\DATA\\Assets\\{this.UserProfile}"));
                 return true;
             }
+        }
+        
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Storyboard riseAnimation = (Storyboard)FindResource("RiseAnimation");
+            Storyboard LRAnimation = (Storyboard)FindResource("LRAnimation");
+            Storyboard EnterInfoAnimation = (Storyboard)FindResource("EnterInfoAnimation");
+
+            Storyboard.SetTarget(riseAnimation, GridColumn01);
+            Storyboard.SetTarget(LRAnimation, MenuBtn);
+            Storyboard.SetTarget(EnterInfoAnimation, this.EnterInfomation);
+
+            EnterInfoAnimation.Begin();
+            riseAnimation.Begin();
+            LRAnimation.Begin();
         }
 
         private string UserProfile { set; get; } = string.Empty;

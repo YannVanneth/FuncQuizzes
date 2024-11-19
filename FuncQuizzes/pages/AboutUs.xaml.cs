@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace FuncQuizzes.pages
 {
@@ -208,6 +209,24 @@ namespace FuncQuizzes.pages
             }
 
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Storyboard RiseAnimation = (Storyboard)FindResource("RiseAnimation");
+
+            Storyboard.SetTarget(RiseAnimation, this.AboutUsA);
+            RiseAnimation.Begin();
+
+            RiseAnimation.BeginTime = new TimeSpan(0,0,0, 0, 400);
+
+            Storyboard.SetTarget(RiseAnimation, this.ParagraphText);
+            RiseAnimation.Begin();
+
+            RiseAnimation.BeginTime = new TimeSpan(0, 0, 0, 0, 800);
+
+            Storyboard.SetTarget(RiseAnimation, this.MemberGrid);
+            RiseAnimation.Begin();
         }
     }
 }
