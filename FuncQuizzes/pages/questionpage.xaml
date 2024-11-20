@@ -59,7 +59,8 @@
             <TextBlock x:Name="questionnam"
                        FontFamily="{StaticResource Suwannaphum}"
                        Foreground="Black"
-                       FontSize="30">
+                       FontSize="30"
+                       TextWrapping="Wrap">
             </TextBlock>
             <Button x:Name="buttonanswer2"
                     Margin="0 30 0 0"

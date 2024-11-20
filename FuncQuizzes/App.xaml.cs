@@ -1,7 +1,11 @@
-﻿using System.Configuration;
+﻿using FuncQuizzes.components;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace FuncQuizzes
 {

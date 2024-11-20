@@ -4,10 +4,70 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FuncQuizzes.pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Loaded="Page_Loaded"
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="SplashScreen">
+    <Page.Resources>
+        <Storyboard x:Key="SponserTextAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                         From="300" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+        
+        <Storyboard x:Key="LRGrid01Animation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                         From="-1000" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
 
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="RLGrid02Animation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                 From="1000" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                 From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="FadeIn">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                 From="1000" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                 From="0" To="1" Duration="0:0:2.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="TBAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+         From="-1000" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+         From="0" To="1" Duration="0:0:2.5" />
+        </Storyboard>
+    </Page.Resources>
+    
     <Grid Background="White" x:Name="MainGrid"
           Margin="30">
         <Grid.RowDefinitions>
@@ -20,12 +80,14 @@
             <StackPanel Orientation="Horizontal">
                 <Border Width="194"
                         Height="109"
-                        HorizontalAlignment="Left">
+                        HorizontalAlignment="Left"
+                        x:Name="FuncQuizzesLogo">
                     <Border.Background>
                         <ImageBrush ImageSource="../assets/images/FuncQuizzes_primary.png"/>
                     </Border.Background>
                 </Border>
                 <TextBlock Text="ក្រុមទី២"
+                           x:Name="Team"
                            VerticalAlignment="Bottom"
                            FontFamily="{DynamicResource Moul}"
                            FontSize="25"
@@ -33,24 +95,32 @@
                            Margin="-15 0 0 -10"/>
             </StackPanel>
             <TextBlock Text="សូមស្វាគមន៍មកកាន់កម្មវីធី FuncQuizzes"
+                       x:Name="HeadText_02"
                        FontFamily="{DynamicResource Moul}"
                        FontSize="32"
                        VerticalAlignment="Center"
                        Foreground="#29ADE3"
-                       Margin="40 0"/>
+                       Margin="40 0">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="-1000"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <Border Height="170" Width="170">
+            <Border Height="170" Width="170"
+                    x:Name="Image01">
                 <Image Source="../assets/images/quiz 1.png"/>
             </Border>
             <Border Height="170" Width="170"
-                    Margin="40 0">
+                    Margin="40 0"
+                    x:Name="Image02">
                 <Image Source="../assets/images/quiz-game.png"/>
             </Border>
-            <Border Height="170" Width="170">
+            <Border Height="170" Width="170"
+                    x:Name="Image03">
                 <Image Source="../assets/images/brain.png"/>
             </Border>
         </StackPanel>
@@ -65,7 +135,11 @@
 
             <StackPanel Grid.Row="0"
                         VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        x:Name="SponserText">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform Y="300"/>
+                </StackPanel.RenderTransform>
                 <TextBlock Text="ឧបត្ថម្ភដោយ"
                            FontFamily="{DynamicResource Moul}"
                            Foreground="#29ADE3"
@@ -79,17 +153,25 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="1"
+                        x:Name="ANT_LOGO"
                         Height="125"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Margin="0 4 0 0">
+                    <Border.RenderTransform>
+                        <TranslateTransform X="1000"/>
+                    </Border.RenderTransform>
                     <Image Source="../assets/images/ANT_Logo.png"/>
                 </Border>
 
                 <StackPanel Grid.Column="0"
                             Orientation="Horizontal"
                             VerticalAlignment="Top"
-                            Margin="0 0 40 0">
+                            Margin="0 0 40 0"
+                            x:Name="Grid01_logo">
+                    <StackPanel.RenderTransform>
+                        <TranslateTransform X="-1000"/>
+                    </StackPanel.RenderTransform>
                     <Border Height="96" >
                             <Image Source="../assets/images/MPTC.png"/>
                     </Border>

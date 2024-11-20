@@ -7,7 +7,43 @@
       xmlns:local="clr-namespace:FuncQuizzes.pages"
       mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="1200"
+      Loaded="Page_Loaded"
       Title="HomeScreen">
+    <Page.Resources>
+        <Storyboard x:Key="RiseAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                         From="50" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+        <Storyboard x:Key="LRAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                         From="-100" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+        <Storyboard x:Key="EnterInfoAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                       From="-1000" To="0" Duration="0:0:2.0">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                       From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+    </Page.Resources>
+
     <Grid Background="White">
 
         <Grid.RowDefinitions>
@@ -95,7 +131,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0"
-                    Padding="0 20 10 20">
+                        Padding="0 20 10 20"
+                        x:Name="MenuBtn">
+                    <Border.RenderTransform>
+                        <TranslateTransform X="-90"/>
+                    </Border.RenderTransform>
                     <StackPanel>
                         <Border BorderBrush="DarkOrange"
                             BorderThickness="5 0 0 0"
@@ -159,8 +199,13 @@
 
                 <ScrollViewer Grid.Column="1"
                           VerticalScrollBarVisibility="Hidden"
-                          HorizontalAlignment="Stretch">
+                          HorizontalAlignment="Stretch"
+                          x:Name="GridColumn01">
+                    <ScrollViewer.RenderTransform>
+                            <TranslateTransform Y="50"/>
+                        </ScrollViewer.RenderTransform>
                     <Grid>
+                        
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="3*"/>
@@ -184,7 +229,9 @@
         <Canvas Panel.ZIndex="1"
                 VerticalAlignment="Center"
                 x:Name="EnterInfomation">
-            
+            <Canvas.RenderTransform>
+                <TranslateTransform X="1000"/>
+            </Canvas.RenderTransform>
             <Border Canvas.Top="200"
                     Background="Black"
                     Height="auto"

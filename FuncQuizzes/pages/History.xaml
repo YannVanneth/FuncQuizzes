@@ -6,9 +6,36 @@
       xmlns:local="clr-namespace:FuncQuizzes.pages"
       mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="1200"
-      Title="History"
+      Title="History" Loaded="Page_Loaded"
       Background="White">
+    <Page.Resources>
+        <Storyboard x:Key="LRAnimation">
+            <!-- Rise effect -->
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                 From="-100" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
 
+            <!-- Fade-in effect -->
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                 From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+        <Storyboard x:Key="RLAnimation">
+            <!-- Rise effect -->
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                 From="100" To="0" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <QuadraticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <!-- Fade-in effect -->
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                 From="0" To="1" Duration="0:0:0.5" />
+        </Storyboard>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -47,8 +74,16 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" x:Name="StackColOne" HorizontalAlignment="Right" Margin="10 0"/>
-                    <StackPanel Grid.Column="1" x:Name="StackColTwo" HorizontalAlignment="Left" Margin="10 0"/>
+                    <StackPanel Grid.Column="0" x:Name="StackColOne" HorizontalAlignment="Right" Margin="10 0">
+                        <StackPanel.RenderTransform>
+                            <TranslateTransform X="-100"/>
+                        </StackPanel.RenderTransform>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" x:Name="StackColTwo" HorizontalAlignment="Left" Margin="10 0">
+                        <StackPanel.RenderTransform>
+                            <TranslateTransform X="100"/>
+                        </StackPanel.RenderTransform>
+                    </StackPanel>
                 </Grid>
             </ScrollViewer>
         </Grid>
