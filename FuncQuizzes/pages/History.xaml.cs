@@ -32,9 +32,8 @@ namespace FuncQuizzes.pages
 
                     dataTable = db.SelectFromTable("History");
 
-                    if (dataTable.Rows.Count >= 0)
+                    if (dataTable.Rows.Count > 0)
                     {
-
                         this.Grid02.Visibility = Visibility.Visible;
                         this.NoDataPage.Visibility = Visibility.Hidden;
 
