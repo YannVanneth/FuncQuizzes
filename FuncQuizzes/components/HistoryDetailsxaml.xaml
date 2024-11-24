@@ -14,6 +14,7 @@
         <StackPanel>
             <TextBlock x:Name="questionname"
                        Margin="20"
+                       TextWrapping="Wrap"
                        FontFamily="{StaticResource Suwannaphum}"
                        FontSize="18">
     
@@ -21,12 +22,13 @@
             </TextBlock>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"
                            x:Name="textanswer"
                            Margin="20"
+                           TextWrapping="Wrap"
                            FontSize="15"
                            FontFamily="{StaticResource Suwannaphum}">
                     hello
@@ -35,6 +37,7 @@
                            HorizontalAlignment="Right"
                            Margin="20"
                            FontSize="15"
+                           TextWrapping="Wrap"
                            x:Name="iscorrectanswer"
                            FontFamily="{StaticResource Suwannaphum}">
                     hello
