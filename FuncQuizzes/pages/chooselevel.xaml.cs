@@ -74,7 +74,15 @@ namespace FuncQuizzes.pages
 
         private void chooselevelhome_Click(object sender, RoutedEventArgs e)
         {
-            App.SwitchPage(new pages.selectcategory());
+            //App.SwitchPage(new pages.selectcategory());
+            if (App.previousPage == new pages.selectcategory())
+            {
+                App.SwitchPage(new pages.selectcategory());
+            }
+            else
+            {
+                App.SwitchPage(App.previousPage!);
+            }
         }
     }
 }

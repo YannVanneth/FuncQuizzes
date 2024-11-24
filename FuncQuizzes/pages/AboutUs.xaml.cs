@@ -200,15 +200,14 @@ namespace FuncQuizzes.pages
 
         private void button_back(object sender, RoutedEventArgs e)
         {
-
-            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-
-            if (mainWindow != null)
+            if (App.previousPage == new pages.HomeScreen())
             {
-                mainWindow.Main.Content = new pages.HomeScreen();
+                App.SwitchPage(new pages.HomeScreen());
             }
-
-
+            else
+            {
+                App.SwitchPage(App.previousPage!);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -44,7 +44,7 @@ namespace FuncQuizzes.pages
                             string image = this.GetCategoryImage(dataTable.Rows[i]["category"].ToString()!);
 
                             double result;
-                            string GradeFetch = GradeCalculate( double.Parse(dataTable.Rows[i]["total_score"].ToString()!));
+                            string GradeFetch = GradeCalculate(double.Parse(dataTable.Rows[i]["total_score"].ToString()!));
                             double.TryParse(GradeFetch, out result);
 
                             GradeFetch = this.GetGradeImage(GradeFetch);
@@ -195,7 +195,14 @@ namespace FuncQuizzes.pages
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App.SwitchPage(new pages.HomeScreen());
+            if(App.previousPage == new pages.HomeScreen())
+            {
+                App.SwitchPage(new pages.HomeScreen());
+            }
+            else
+            {
+                App.SwitchPage(App.previousPage!);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
