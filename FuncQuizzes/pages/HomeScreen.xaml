@@ -110,7 +110,8 @@
                                x:Name="UserNameProfile"
                                VerticalAlignment="Center"
                                FontSize="14"
-                               FontWeight="Bold"
+                               FontWeight="Heavy"
+                               Foreground="Black"
                                FontFamily="{DynamicResource Kantumruy_Pro}"/>
                 </StackPanel>
             </Grid>
@@ -137,8 +138,17 @@
                         <TranslateTransform X="-90"/>
                     </Border.RenderTransform>
                     <StackPanel>
-                        <Border BorderBrush="DarkOrange"
-                            BorderThickness="5 0 0 0"
+                        <Canvas Panel.ZIndex="1" x:Name="MenuTabIn">
+                            <Border Background="{DynamicResource Primary-color}"
+                                    Width="5" Height="30" CornerRadius="4" Margin="4 0 0 0"
+                                    RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <TranslateTransform/>
+                                </Border.RenderTransform>
+                            </Border>
+                        </Canvas>
+                        <Border BorderBrush="Transparent"
+                            BorderThickness="6 0 0 0"
                             Padding="5 0"
                             x:Name="HomePageBorder">
                             <Button Style="{DynamicResource MenuButton}"
@@ -148,7 +158,7 @@
                                 <FuncQuizzes:MenuItems Icon="{DynamicResource Home}"
                                                    Text="ទំព័រដើម"
                                                    IconWidth="25"
-                                                   Color="DarkOrange"
+                                                   Color="Black"
                                                    Margin="10 0"
                                                    x:Name="HomeIcon"/>
                             </Button>
@@ -157,9 +167,8 @@
                         <StackPanel Margin="5"/>
                         <!--Spacer-->
 
-
                         <Border Padding="5 0"
-                            BorderThickness="5 0 0 0"
+                            BorderThickness="6 0 0 0"
                             x:Name="HistoryPageBorder">
                             <Button Style="{DynamicResource MenuButton}"
                                 HorizontalContentAlignment="Left"
@@ -179,7 +188,7 @@
 
 
                         <Border Padding="5 0"
-                            BorderThickness="5 0 0 0"
+                            BorderThickness="6 0 0 0"
                             x:Name="AboutUsPageBorder">
                             <Button Style="{DynamicResource MenuButton}"
                                 HorizontalContentAlignment="Left"

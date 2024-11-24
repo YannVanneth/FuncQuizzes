@@ -62,11 +62,23 @@ Style="{StaticResource ImageLink}">
                         <TranslateTransform Y="1000"/>
                     </Label.RenderTransform>
                 </Label>
-                <TextBlock x:Name="ParagraphText" Text="FuncQuizze គឺជាកម្មវិធីធ្វើតេស្ដសមត្ថភាពបែបកំសាន្ត និងផ្ដល់ចំណេះដឹងថ្មីៗទាក់ទងនឹងបច្ចេកវិទ្យា។​  ក្រុមរបស់ពួកយើងដែលមានចំណង់ចំណូលចិត្តក្នុងការធ្វើតេស្ដតាមដានសមត្ថភាពជាប្រចាំ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលបំណងឱ្យការរៀនសូត្រកាន់តែមានរីករាយ និងងាយស្រួល។ ជាមួយនឹងសំណួរតេស្តជាច្រើនប្រភេទ រួមមានភាសាកុំព្យូទ័រ និងចំណេះដឹងទូទៅទាក់ទងនឹងបច្ចេកវិទ្យា ដែលអាចផ្ដល់នូវបទពិសោធន៍ថ្មីៗ។​ ពួកយើងមានឆន្ទៈក្នុងការអភិវឌ្ឍកម្មវិធី ពង្រីកមុខងារកម្មវិធីឱ្យកាន់តែប្រសើរ និងតម្រូវតាមការពេញចិត្តរបស់អ្នកប្រើប្រាស់។ សូមចូលរួមដោយក្ដីរីករាយជាមួយ FuncQuizze​ !!" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" TextAlignment="Center" FontFamily="{StaticResource Suwannaphum}">
+                <StackPanel>
+                    <TextBlock x:Name="ParagraphText" 
+                                Text="   FuncQuizze គឺជាកម្មវិធីធ្វើតេស្ដសមត្ថភាពបែបកំសាន្ត និងផ្ដល់ចំណេះដឹងថ្មីៗទាក់ទងនឹងបច្ចេកវិទ្យា។​  ក្រុមរបស់ពួកយើងដែលមានចំណង់ចំណូលចិត្ត
+                                    ក្នុងការធ្វើតេស្ដតាមដានសមត្ថភាពជាប្រចាំ បានបង្កើតកម្មវិធីនេះឡើងដោយមានគោលបំណងឱ្យការរៀនសូត្រកាន់តែមានរីករាយ និងងាយស្រួល។ ជាមួយនឹង
+                               សំណួរតេស្តជាច្រើនប្រភេទ រួមមានភាសាកុំព្យូទ័រ និងចំណេះដឹងទូទៅទាក់ទងនឹងបច្ចេកវិទ្យា ដែលអាចផ្ដល់នូវបទពិសោធន៍ថ្មីៗ។​ ពួកយើងមានឆន្ទៈក្នុងការ
+                               អភិវឌ្ឍកម្មវិធី ពង្រីកមុខងារកម្មវិធីឱ្យកាន់តែប្រសើរ និងតម្រូវតាមការពេញចិត្តរបស់អ្នកប្រើប្រាស់។ សូមចូលរួមដោយក្ដីរីករាយជាមួយ FuncQuizze​ !!" 
+                                TextWrapping="Wrap" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                TextAlignment="Left"
+                                FontSize="20" 
+                                FontFamily="{StaticResource Suwannaphum}">
                     <TextBlock.RenderTransform>
-                        <TranslateTransform Y="1000"/>
+                    <TranslateTransform Y="1000"/>
                     </TextBlock.RenderTransform>
-                </TextBlock>
+                    </TextBlock>
+                </StackPanel>
             </StackPanel>
         </Border>
         <Grid x:Name="MemberGrid"  Grid.Row="2" VerticalAlignment="Center">

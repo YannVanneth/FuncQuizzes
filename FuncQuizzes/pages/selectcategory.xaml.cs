@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,6 +29,7 @@ namespace FuncQuizzes.pages
             InitializeComponent();
             LoadCategories();
         }
+
         private void LoadCategories()
         {
             StackPanel[] stacks = new StackPanel[] { stack01, stack02, stack03, stack04 };
@@ -119,7 +121,14 @@ namespace FuncQuizzes.pages
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            App.SwitchPage(new pages.HomeScreen());
+            if (App.previousPage == new pages.HomeScreen())
+            {
+                App.SwitchPage(new pages.HomeScreen());
+            }
+            else
+            {
+                App.SwitchPage(App.previousPage!);
+            }
         }
     }
 }

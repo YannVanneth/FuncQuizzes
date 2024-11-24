@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -18,7 +19,8 @@ namespace FuncQuizzes
 
         public static void SwitchPage(Page page)
         {
-            mainWindow.Main.Content = page;
+           previousPage = (Page)mainWindow.Main.Content;
+           mainWindow.Main.Content = page;
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -29,6 +31,8 @@ namespace FuncQuizzes
         public int GlobalCategoryId { get; set; }
         public int GlobalLevelId { get; set; }
         public int totalScore { get; set; }
+
+        public static Page? previousPage = new Page();
     }
 
 }

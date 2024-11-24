@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System.Configuration;
 using System.Data;
 using System.IO;
+using System.Security.Cryptography.Xml;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,66 +18,123 @@ namespace FuncQuizzes.pages
     /// </summary>
     public partial class HomeScreen : Page
     {
+        private static double PositionY;
         private ScrollViewer _scrollViewer;
         private StackPanel _stackPanel;
         public HomeScreen()
         {
             InitializeComponent();
-            this.ActiveBorder(this.HomePageBorder.BorderBrush);
             CheckInfomation();
         }
 
         private void HistoryPage_Click(object sender, RoutedEventArgs e)
         {
-            this.ActiveBorder(this.HistoryPageBorder.BorderBrush);
-            App.SwitchPage(new pages.History());
+            ActiveBorder(new pages.History());
         }
 
         private void AboutUsPage_Click(object sender, RoutedEventArgs e)
         {
-            this.ActiveBorder(this.AboutUsPageBorder.BorderBrush);
-            App.SwitchPage(new pages.AboutUs());
+           ActiveBorder(new pages.AboutUs());
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
-            this.ActiveBorder(this.HomePageBorder.BorderBrush);
+            ActiveBorder(new pages.HomeScreen());
         }
 
-        private void ActiveBorder(Brush border)
+        private void HomeBorder(ref double targetY)
         {
-            if (border == this.AboutUsPageBorder.BorderBrush)
+            if (targetY == 0)
             {
-                this.AboutUsPageBorder.BorderBrush = new SolidColorBrush(Colors.Orange);
-                this.HomePageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-                this.HistoryPageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-
-                this.AboutIcon.Color = new SolidColorBrush(Colors.Orange);
-                this.HistoryIcon.Color = new SolidColorBrush(Colors.White);
-                this.HomeIcon.Color = new SolidColorBrush(Colors.White);
+               targetY = 0;
             }
 
-            else if (border == this.HomePageBorder.BorderBrush)
+            else if (targetY == 40)
             {
-                this.AboutUsPageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-                this.HomePageBorder.BorderBrush = new SolidColorBrush(Colors.Orange);
-                this.HistoryPageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-
-                this.AboutIcon.Color = new SolidColorBrush(Colors.White);
-                this.HistoryIcon.Color = new SolidColorBrush(Colors.White);
-                this.HomeIcon.Color = new SolidColorBrush(Colors.Orange);
+               targetY -= 40;
             }
 
-            else if (border == this.HistoryPageBorder.BorderBrush)
+            else if (targetY == 80)
             {
-                this.HistoryPageBorder.BorderBrush = new SolidColorBrush(Colors.Orange);
-                this.HomePageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-                this.AboutUsPageBorder.BorderBrush = new SolidColorBrush(Colors.White);
-
-                this.AboutIcon.Color = new SolidColorBrush(Colors.White);
-                this.HistoryIcon.Color = new SolidColorBrush(Colors.Orange);
-                this.HomeIcon.Color = new SolidColorBrush(Colors.White);
+               targetY -= 80;
             }
+
+            var moveAnimation = new DoubleAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(0.4)),
+                To = targetY
+            };
+
+            if (MenuTabIn.RenderTransform is not TranslateTransform transform)
+            {
+                MenuTabIn.RenderTransform = new TranslateTransform();
+                transform = (TranslateTransform)MenuTabIn.RenderTransform;
+            }
+
+            transform.BeginAnimation(TranslateTransform.YProperty, moveAnimation);
+
+            PositionY = targetY;
+        }
+
+        private void ActiveBorder(Page newPage)
+        {
+            double targetY = (PositionY == null) ? 0 : PositionY;
+
+            if (targetY == 0)
+            {
+                if (newPage is pages.HomeScreen)
+                    targetY = 0;
+                else if (newPage is pages.History)
+                    targetY = 40;
+                else if (newPage is pages.AboutUs)
+                    targetY = 80;
+            }
+
+            else if (targetY == 40)
+            {
+                if (newPage is pages.HomeScreen)
+                    targetY -= 40;
+                else if (newPage is pages.History)
+                    targetY -= 0;
+                else if (newPage is pages.AboutUs)
+                    targetY += 40;
+            }
+
+            else if (targetY == 80)
+            {
+                if (newPage is pages.HomeScreen)
+                    targetY -= 80;
+                else if (newPage is pages.History)
+                    targetY -= 40;
+                else if (newPage is pages.AboutUs)
+                    targetY -= 0;
+            }
+
+            var moveAnimation = new DoubleAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(0.4)),
+                To = targetY
+            };
+
+            if (MenuTabIn.RenderTransform is not TranslateTransform transform)
+            {
+                MenuTabIn.RenderTransform = new TranslateTransform();
+                transform = (TranslateTransform)MenuTabIn.RenderTransform;
+            }
+
+            moveAnimation.Completed += (s, e) =>
+            {
+                App.SwitchPage(newPage);
+            };
+
+            transform.BeginAnimation(TranslateTransform.YProperty, moveAnimation);
+
+            PositionY = targetY;
+        }
+
+        private void HomeScreen_Completed(object? sender, EventArgs e)
+        {
+            MessageBox.Show("found");
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -169,7 +227,6 @@ namespace FuncQuizzes.pages
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show($"{ex.Message}");
                     }
                 }
             }
@@ -263,10 +320,7 @@ namespace FuncQuizzes.pages
 
                 read.Close();
             }
-            catch
-            {
-
-            }
+            catch{}
             finally
             {
                 if (lines != null)
@@ -307,6 +361,11 @@ namespace FuncQuizzes.pages
             EnterInfoAnimation.Begin();
             riseAnimation.Begin();
             LRAnimation.Begin();
+
+            LRAnimation.Completed += (s, e) =>
+            {
+                HomeBorder(ref PositionY);
+            };
         }
 
         private string UserProfile { set; get; } = string.Empty;
