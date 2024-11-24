@@ -17,18 +17,18 @@ namespace FuncQuizzes.pages
 
         private void Avar_1_Email_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://mail.google.com/mail/?view=cm&fs=1&to=oeundavid235@gmail.com&su=Hello&body=Hi%20David";
+            // Gmail URL for composing an email
+            string gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=oeundavid235@gmail.com&su=Greeting&body=Hi%20David";
 
             try
             {
-                // Open the link in the default web browser
-                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+
+                Process.Start(new ProcessStartInfo(gmailComposeUrl) { UseShellExecute = true });
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Could not open the link: {ex.Message}");
+                MessageBox.Show($"Could not open Gmail: {ex.Message}");
             }
-
         }
 
         private void Avar_1_Facebook_Click(object sender, RoutedEventArgs e)
@@ -66,6 +66,18 @@ namespace FuncQuizzes.pages
         private void Avar_2_Email_Click(object sender, RoutedEventArgs e)
         {
 
+            // Gmail URL for composing an email
+            string gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=yannvanneth.27@gmail.com&su=Greeting&body=Hi%20Vanneth";
+
+            try
+            {
+
+                Process.Start(new ProcessStartInfo(gmailComposeUrl) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open Gmail: {ex.Message}");
+            }
 
         }
 
@@ -102,7 +114,7 @@ namespace FuncQuizzes.pages
         private void Avar_3_Email_Click(object sender, RoutedEventArgs e)
         {
             // Gmail URL for composing an email
-            string gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=taemmarina@gmail.com&su=Hello&body=Hi%20Marina";
+            string gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=taemmarina@gmail.com&su=Greeting&body=Hi%20Marina";
 
             try
             {
@@ -151,16 +163,17 @@ namespace FuncQuizzes.pages
         private void Avar_4_Email_Click(object sender, RoutedEventArgs e)
         {
 
-            string url = "https://mail.google.com/mail/?view=cm&fs=1&to=prach.boroeurn@gmail.com&su=Hello&body=Hi%20Boroeurn";
+            // Gmail URL for composing an email
+            string gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=prach.boroeurn@gmail.com&su=Greeting&body=Hi%20Boroeurn";
 
             try
             {
-                // Open the link in the default web browser
-                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+
+                Process.Start(new ProcessStartInfo(gmailComposeUrl) { UseShellExecute = true });
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Could not open the link: {ex.Message}");
+                MessageBox.Show($"Could not open Gmail: {ex.Message}");
             }
 
         }
