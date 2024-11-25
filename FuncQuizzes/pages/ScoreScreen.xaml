@@ -84,22 +84,35 @@
             </Grid>
             
         </ScrollViewer>
-        <StackPanel Grid.Row="2" Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Margin="0 0 80 0">
-            <Button Height="50" Width="160"
-                    x:Name="buttonagain"
-                    Click="buttonagain_Click"
-                    FontSize="20" Margin="0 0 30 0"
-                    Style="{StaticResource newbuttonstyle}">
-                សាកល្បងម្ដងទៀត
-            </Button>
-            <Button Height="50" Width="120"
-                    FontSize="20"
-                    Click="Button_Click"
-                    Style="{StaticResource newbuttonstyle}">
-                ទំព័រដើម
-            </Button>
-        </StackPanel>
+        <Border Grid.Row="2"
+                BorderBrush="Black"
+                BorderThickness="0 4 0 0"
+                Margin="0 25 0 0"
+                CornerRadius="20 20 0 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource SecondaryColor}" Offset="0" />
+                    <GradientStop Color="{StaticResource PrimaryColor}" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 80 0">
+                <Button Height="50" Width="160"
+                        x:Name="buttonagain"
+                        Click="buttonagain_Click"
+                        FontSize="20" Margin="0 0 30 0"
+                        Style="{StaticResource newbuttonstyle}">
+                    សាកល្បងម្ដងទៀត
+                </Button>
+                <Button Height="50" Width="120"
+                        FontSize="20"
+                        Click="Button_Click"
+                        Style="{StaticResource newbuttonstyle}">
+                    ទំព័រដើម
+                </Button>
+            </StackPanel>
+        </Border>
+        
     </Grid>
 </Page>
