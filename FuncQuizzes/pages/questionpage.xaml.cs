@@ -293,7 +293,7 @@ namespace FuncQuizzes.pages
                         commandInsert.Parameters.AddWithValue("@Score", ((App)Application.Current).totalScore);
                         commandInsert.Parameters.AddWithValue("@DateAndTime", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                         commandInsert.Parameters.AddWithValue("@Duration", durationFormatted);
-
+                        quizTimer.Stop();
                         commandInsert.ExecuteNonQuery();
                     }
 
