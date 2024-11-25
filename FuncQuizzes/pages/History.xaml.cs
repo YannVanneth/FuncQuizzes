@@ -144,9 +144,9 @@ namespace FuncQuizzes.pages
         {
             return level switch
             {
-                "Beginer" => "ងាយស្រួល",
+                "Beginer" => "ទាប",
                 "Advance" => "មធ្យម",
-                _ => "លំបាក",
+                _ => "ខ្ពស់",
             };
         }
 
