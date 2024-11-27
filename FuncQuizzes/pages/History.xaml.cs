@@ -13,6 +13,7 @@ namespace FuncQuizzes.pages
     /// </summary>
     public partial class History : Page
     {
+        private List<components.history_card> history_Cards = new List<components.history_card>();
         public History()
         {
             InitializeComponent();
@@ -67,13 +68,20 @@ namespace FuncQuizzes.pages
                                 CardColor = this.GetCategoryCardColor(dataTable.Rows[i]["category"].ToString()!),
                             };
 
-                            if(i % 2 == 0)
+                            this.history_Cards.Add(history_Card);
+                        }
+
+                        history_Cards.Sort((x, y) => DateTime.Parse(y.QuestDate).CompareTo(DateTime.Parse(x.QuestDate)));
+
+                        for (int i = 0; i < this.history_Cards.Count; i++)
+                        {
+                            if (i % 2 == 0)
                             {
-                                this.StackColOne.Children.Add(history_Card);
+                                this.StackColOne.Children.Add(history_Cards[i]);
                             }
                             else
                             {
-                                this.StackColTwo.Children.Add(history_Card);
+                                this.StackColTwo.Children.Add(history_Cards[i]);
                             }
                         }
                     }
