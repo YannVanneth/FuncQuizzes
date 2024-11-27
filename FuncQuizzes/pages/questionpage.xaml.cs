@@ -247,7 +247,7 @@ namespace FuncQuizzes.pages
                                         answer_corect INTEGER,
                                         total_score INTEGER,
                                         dateandtime TEXT,
-                                        spend_time INTEGER)";
+                                        spend_time TEXT)";
                     using (SQLiteCommand command = new SQLiteCommand(table_history, connection))
                     {
                         command.ExecuteNonQuery();
