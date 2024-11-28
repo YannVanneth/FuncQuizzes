@@ -276,8 +276,6 @@ namespace FuncQuizzes.pages
                 this.UserName = this.NameBox.Text;
                 this.UserNameProfile.Text = this.UserName;
 
-                StreamWriter file = new StreamWriter($"{Directory.GetCurrentDirectory()}\\DATA\\UserNameProfile.FuncQuizzes");
-
                 if (UserProfile == string.Empty || this.UserImageProfile.ImageSource == null)
                 {
                     MessageBox.Show("Sorry, we cannot find your profile picture !");
@@ -290,8 +288,13 @@ namespace FuncQuizzes.pages
                     return;
                 }
 
-                file.Write($"{this.UserName};{Path.GetFileName(this.UserProfile)}");
-                file.Close();
+                if(this.UserName != string.Empty && this.UserProfile != string.Empty)
+                {
+                    StreamWriter file = new StreamWriter($"{Directory.GetCurrentDirectory()}\\DATA\\UserNameProfile.FuncQuizzes");
+
+                    file.Write($"{this.UserName};{Path.GetFileName(this.UserProfile)}");
+                    file.Close();
+                }
             }
             catch (Exception ex)
             {

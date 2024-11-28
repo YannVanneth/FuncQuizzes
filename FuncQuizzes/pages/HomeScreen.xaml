@@ -263,7 +263,7 @@
                                    FontFamily="{DynamicResource Kantumruy_Pro}"
                                    Margin="0 8 10 0"
                                    VerticalAlignment="Center"/>
-                                <TextBlock Text="FuncQuizzes"
+                                <TextBlock Text="FuncQuizze"
                                            Foreground="{DynamicResource Primary-color}"
                                            FontSize="28"
                                            FontWeight="Heavy"

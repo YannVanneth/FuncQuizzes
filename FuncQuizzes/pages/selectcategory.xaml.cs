@@ -121,14 +121,7 @@ namespace FuncQuizzes.pages
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (App.previousPage == new pages.HomeScreen())
-            {
-                App.SwitchPage(new pages.HomeScreen());
-            }
-            else
-            {
-                App.SwitchPage(App.previousPage!);
-            }
+            App.SwitchPage(new pages.HomeScreen());
         }
     }
 }
