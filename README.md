@@ -10,9 +10,4 @@
     - .NET Version : >=8.0
     - Project : WPF - Windows Presentation Form
 
-# ABOUT US
-
-# DEVELOPER TEAM
-
-<img src="FuncQuizzes/assets/images/marina.jpg" alt="marina.jpg" style="width: 120px;"/>  <img src="FuncQuizzes/assets/images/vanneth.jpg" alt="vanneth.jpg" style="width: 120px;"/> <img src="FuncQuizzes/assets/images/boroeurn.jpeg" alt="boroeurn.jpg" style="width: 120px;"/>  <img src="FuncQuizzes/assets/images/david.jpg" alt="david.jpg" style="width: 120px;"/>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
